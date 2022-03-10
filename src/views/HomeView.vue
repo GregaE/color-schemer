@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from "@/components/TheWelcome.vue";
+import GenerateColor from "@/components/GenerateColor.vue";
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <GenerateColor />
   </main>
 </template>

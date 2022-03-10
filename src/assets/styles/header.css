@@ -1,0 +1,15 @@
+header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  height: 8rem;
+}
+
+header img {
+  height: 80%;
+}
+
+header nav {
+  display: flex;
+  gap: 1rem;
+}

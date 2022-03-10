@@ -1,0 +1,60 @@
+:root {
+  --text-primary: #000000;
+  --text-secondary: white;
+  --bg-primary: black;
+  --bg-secondary: white;
+  --danger: red;
+  --border-radius: 5px;
+  --main: 'Poppins', sans-serif;
+}
+
+html {
+  font-family: var(--main);
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+body {
+  background-color: var(--danger);
+}
+
+button {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  padding: 14px 25px;
+  margin: 0;
+  text-decoration: none;
+  font-family: inherit;
+  line-height: 1.4rem;
+  cursor: pointer;
+  text-align: center;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--text-secondary);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--text-secondary);
+  color: var(--bg-primary);
+}
+
+button:active {
+  background: var(--text-secondary);
+  color: var(--bg-primary);
+}
