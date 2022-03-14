@@ -1,9 +1,9 @@
 :root {
   --text-primary: #000000;
-  --text-secondary: white;
-  --bg-primary: black;
-  --bg-secondary: white;
-  --danger: red;
+  --text-secondary: #ffffff;
+  --bg-primary: rgb(52, 40, 161);
+  --bg-secondary: #ffffff;
+  --danger: rgb(250, 6, 6);
   --border-radius: 5px;
   --main: 'Poppins', sans-serif;
 }
@@ -25,7 +25,9 @@ body,
 }
 
 body {
-  background-color: var(--danger);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: 0.5s;
 }
 
 button {

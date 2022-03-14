@@ -1,6 +1,26 @@
+<script>
+import CustomizeForm from "@/components/CustomizeForm.vue";
+
+export default {
+  components: {
+    CustomizeForm,
+  },
+  methods: {
+    greet(name) {
+      console.log("its working!", name);
+    },
+  },
+  emits: ["change-color"],
+};
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1>Customize</h1>
+    <CustomizeForm
+      @hello="greet"
+      @change-color="$emit('change-color', color, field)"
+    />
   </div>
 </template>
 
