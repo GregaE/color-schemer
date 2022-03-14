@@ -18,10 +18,29 @@ export default {
     },
   },
   created() {
-    localStorage.setItem("text-primary", "#ffffff");
-    localStorage.setItem("text-secondary", "#000000");
-    localStorage.setItem("bg-primary", "#3428a1");
-    localStorage.setItem("bg-secondary", "#fff9ff");
+    if (!localStorage.getItem("text-primary")) {
+      localStorage.setItem("text-primary", "#ffffff");
+      localStorage.setItem("text-secondary", "#000000");
+      localStorage.setItem("bg-primary", "#3428a1");
+      localStorage.setItem("bg-secondary", "#fff9ff");
+    } else {
+      rootScheme.style.setProperty(
+        "--text-primary",
+        localStorage.getItem("text-primary")
+      );
+      rootScheme.style.setProperty(
+        "--text-secondary",
+        localStorage.getItem("text-secondary")
+      );
+      rootScheme.style.setProperty(
+        "--bg-primary",
+        localStorage.getItem("bg-primary")
+      );
+      rootScheme.style.setProperty(
+        "--bg-secondary",
+        localStorage.getItem("bg-secondary")
+      );
+    }
   },
 };
 </script>

@@ -41,24 +41,27 @@ export default {
     </div>
     <div>
       <label>Text secondary</label>
+      <div>{{ textSecondary }}</div>
       <input
-        value="textSecondary"
+        v-model="textSecondary"
         type="color"
         @input="onChange($event, '--text-secondary')"
       />
     </div>
     <div>
       <label>Background primary</label>
+      <div>{{ bgPrimary }}</div>
       <input
-        value="bgPrimary"
+        v-model="bgPrimary"
         type="color"
         @change="onChange($event, '--bg-primary')"
       />
     </div>
     <div>
       <label>Background secondary</label>
+      <div>{{ bgSecondary }}</div>
       <input
-        value="bgSecondary"
+        v-model="bgSecondary"
         type="color"
         @input="onChange($event, '--bg-secondary')"
       />
