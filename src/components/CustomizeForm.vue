@@ -1,11 +1,4 @@
 <script>
-const rootScheme = document.querySelector(":root");
-const primary = getComputedStyle(document.documentElement).getPropertyValue(
-  "--text-secondary"
-);
-
-console.log(primary);
-
 export default {
   methods: {
     onChange(event, field) {
@@ -13,12 +6,25 @@ export default {
     },
   },
   data: () => ({
-    form: {
-      primary: getComputedStyle(document.documentElement).getPropertyValue(
-        "--text-secondary"
-      ),
-    },
+    textPrimary: localStorage.getItem("text-primary"),
+    textSecondary: localStorage.getItem("text-secondary"),
+    bgPrimary: localStorage.getItem("bg-primary"),
+    bgSecondary: localStorage.getItem("bg-secondary"),
   }),
+  watch: {
+    textPrimary(newVal) {
+      localStorage.setItem("text-primary", newVal);
+    },
+    textSecondary(newVal) {
+      localStorage.setItem("text-secondary", newVal);
+    },
+    bgPrimary(newVal) {
+      localStorage.setItem("bg-primary", newVal);
+    },
+    bgSecondary(newVal) {
+      localStorage.setItem("bg-secondary", newVal);
+    },
+  },
 };
 </script>
 
@@ -26,24 +32,25 @@ export default {
   <form class="customize-form" :model="form">
     <div>
       <label>Text primary</label>
+      <div>{{ textPrimary }}</div>
       <input
-        v-model="primary"
+        v-model="textPrimary"
         type="color"
-        @change="onChange($event, '--text-secondary')"
+        @input="onChange($event, '--text-primary')"
       />
     </div>
     <div>
       <label>Text secondary</label>
       <input
-        value='getComputedStyle(document.documentElement).getPropertyValue("--text-secondary")'
+        value="textSecondary"
         type="color"
-        @change="onChange($event, '--text-secondary')"
+        @input="onChange($event, '--text-secondary')"
       />
     </div>
     <div>
       <label>Background primary</label>
       <input
-        value='rootScheme.style.getPropertyValue("--bg-primary")'
+        value="bgPrimary"
         type="color"
         @change="onChange($event, '--bg-primary')"
       />
@@ -51,9 +58,9 @@ export default {
     <div>
       <label>Background secondary</label>
       <input
-        value='rootScheme.style.getPropertyValue("--bg-secondary")'
+        value="bgSecondary"
         type="color"
-        @change="onChange($event, '--bg-secondary')"
+        @input="onChange($event, '--bg-secondary')"
       />
     </div>
   </form>

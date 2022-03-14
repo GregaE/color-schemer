@@ -17,6 +17,12 @@ export default {
       rootScheme.style.setProperty(field, color);
     },
   },
+  created() {
+    localStorage.setItem("text-primary", "#ffffff");
+    localStorage.setItem("text-secondary", "#000000");
+    localStorage.setItem("bg-primary", "#3428a1");
+    localStorage.setItem("bg-secondary", "#fff9ff");
+  },
 };
 </script>
 
