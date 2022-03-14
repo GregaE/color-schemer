@@ -1,6 +1,6 @@
 :root {
-  --text-primary: #000000;
-  --text-secondary: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
   --bg-primary: rgb(52, 40, 161);
   --bg-secondary: #ffffff;
   --danger: rgb(250, 6, 6);
@@ -44,7 +44,7 @@ button {
   line-height: 1.4rem;
   cursor: pointer;
   text-align: center;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   color: var(--text-secondary);
   border: 1px solid var(--text-secondary);
   letter-spacing: 2px;
@@ -53,10 +53,10 @@ button {
 
 button:hover {
   background: var(--text-secondary);
-  color: var(--bg-primary);
+  color: var(--bg-secondary);
 }
 
 button:active {
   background: var(--text-secondary);
-  color: var(--bg-primary);
+  color: var(--bg-secondary);
 }

@@ -6,21 +6,18 @@ export default {
     CustomizeForm,
   },
   methods: {
-    greet(name) {
-      console.log("its working!", name);
+    emitColor(color, field) {
+      this.$emit("change-color", color, field);
     },
   },
-  emits: ["change-color"],
+  emits: ["change-color", "hello"],
 };
 </script>
 
 <template>
   <div>
     <h1>Customize</h1>
-    <CustomizeForm
-      @hello="greet"
-      @change-color="$emit('change-color', color, field)"
-    />
+    <CustomizeForm @change-color="emitColor" />
   </div>
 </template>
 

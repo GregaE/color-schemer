@@ -14,12 +14,8 @@ export default {
   },
   methods: {
     changeColor(color, field) {
-      console.log("here");
       rootScheme.style.setProperty(field, color);
     },
-    // greet(name) {
-    //   console.log("its working!", name);
-    // },
   },
 };
 </script>
@@ -27,7 +23,7 @@ export default {
 <template>
   <HomeHeader />
   <HelloWorld msg="You did it!" />
-  <CustomizationView @hello="greet" @change-color="changeColor, event, field" />
+  <CustomizationView @change-color="changeColor" />
   <RouterView />
 </template>
 

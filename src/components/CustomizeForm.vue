@@ -4,26 +4,26 @@ const primary = getComputedStyle(document.documentElement).getPropertyValue(
   "--text-secondary"
 );
 
+console.log(primary);
+
 export default {
   methods: {
     onChange(event, field) {
-      console.log(event.target.value, field);
       this.$emit("change-color", event.target.value, field);
     },
-    hello(name) {
-      console.log("hi", name);
-      this.$emit("hello", name);
-    },
   },
+  data: () => ({
+    form: {
+      primary: getComputedStyle(document.documentElement).getPropertyValue(
+        "--text-secondary"
+      ),
+    },
+  }),
 };
 </script>
 
 <template>
-  <form class="customize-form">
-    <div>
-      <label>Text primary</label>
-      <input type="color" @change="hello('John')" />
-    </div>
+  <form class="customize-form" :model="form">
     <div>
       <label>Text primary</label>
       <input
