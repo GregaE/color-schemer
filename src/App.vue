@@ -1,7 +1,6 @@
 <script>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
 import HomeHeader from "./components/HomeHeader.vue";
+import HomeView from "./views/HomeView.vue";
 import CustomizationView from "./views/CustomizationView.vue";
 
 const rootScheme = document.querySelector(":root");
@@ -9,7 +8,7 @@ const rootScheme = document.querySelector(":root");
 export default {
   components: {
     HomeHeader,
-    HelloWorld,
+    HomeView,
     CustomizationView,
   },
   methods: {
@@ -46,13 +45,14 @@ export default {
 </script>
 
 <template>
-  <HomeHeader />
-  <HelloWorld msg="You did it!" />
-  <CustomizationView @change-color="changeColor" />
-  <RouterView />
+  <div>
+    <HomeHeader />
+    <HomeView />
+    <CustomizationView @change-color="changeColor" />
+  </div>
 </template>
 
 <style>
-@import "@/assets/styles/reset.css";
+/* @import "@/assets/styles/reset.css"; */
 @import "@/assets/styles/main.css";
 </style>

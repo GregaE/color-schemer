@@ -20,6 +20,6 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 @import "@/assets/styles/customizeView.css";
 </style>

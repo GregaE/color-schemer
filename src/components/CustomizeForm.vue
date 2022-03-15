@@ -83,3 +83,7 @@ export default {
     </div>
   </form>
 </template>
+
+<style scoped>
+@import "@/assets/styles/components/customizeForm.css";
+</style>
