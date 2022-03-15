@@ -83,7 +83,3 @@ export default {
     </div>
   </form>
 </template>
-
-<style>
-@import "@/assets/styles/customizeView.css";
-</style>

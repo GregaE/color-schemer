@@ -21,6 +21,5 @@ export default {
 </template>
 
 <style>
-@media (min-width: 1024px) {
-}
+@import "@/assets/styles/customizeView.css";
 </style>
