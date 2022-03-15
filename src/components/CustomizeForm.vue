@@ -30,46 +30,60 @@ export default {
 
 <template>
   <form class="customize-form" :model="form">
+    <h1>Customize</h1>
     <div>
-      <label>Text primary</label>
-      <div>{{ textPrimary }}</div>
-      <input
-        v-model="textPrimary"
-        type="color"
-        @input="onChange($event, '--text-primary')"
-      />
-    </div>
-    <div>
-      <label>Text secondary</label>
-      <div>{{ textSecondary }}</div>
-      <input
-        v-model="textSecondary"
-        type="color"
-        @input="onChange($event, '--text-secondary')"
-      />
-    </div>
-    <div>
-      <label>Background primary</label>
-      <div>{{ bgPrimary }}</div>
-      <input
-        v-model="bgPrimary"
-        type="color"
-        @change="onChange($event, '--bg-primary')"
-      />
-    </div>
-    <div>
-      <label>Background secondary</label>
-      <div>{{ bgSecondary }}</div>
-      <input
-        v-model="bgSecondary"
-        type="color"
-        @input="onChange($event, '--bg-secondary')"
-      />
+      <div class="color-picker">
+        <label for="textPrimary">Text primary</label>
+        <div class="color-field">
+          <div>{{ textPrimary }}</div>
+          <input
+            v-model="textPrimary"
+            type="color"
+            id="textPrimary"
+            @input="onChange($event, '--text-primary')"
+          />
+        </div>
+      </div>
+      <div class="color-picker">
+        <label for="textSecondary">Text secondary</label>
+        <div class="color-field">
+          <div>{{ textSecondary }}</div>
+          <input
+            v-model="textSecondary"
+            type="color"
+            id="textSecondary"
+            @input="onChange($event, '--text-secondary')"
+          />
+        </div>
+      </div>
+      <div class="color-picker">
+        <label for="bgPrimary">Background primary</label>
+        <div class="color-field">
+          <div>{{ bgPrimary }}</div>
+          <input
+            v-model="bgPrimary"
+            type="color"
+            id="bgPrimary"
+            @input="onChange($event, '--bg-primary')"
+          />
+        </div>
+      </div>
+      <div class="color-picker">
+        <label for="bgSecondary">Background secondary</label>
+        <div class="color-field">
+          <div>{{ bgSecondary }}</div>
+          <input
+            v-model="bgSecondary"
+            type="color"
+            id="bgSecondary"
+            @input="onChange($event, '--bg-secondary')"
+          />
+        </div>
+      </div>
     </div>
   </form>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-}
+@import "@/assets/styles/customizeView.css";
 </style>

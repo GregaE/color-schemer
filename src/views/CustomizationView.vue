@@ -15,8 +15,7 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>Customize</h1>
+  <div class="customization-view">
     <CustomizeForm @change-color="emitColor" />
   </div>
 </template>

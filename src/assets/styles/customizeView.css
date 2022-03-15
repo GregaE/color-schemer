@@ -1,0 +1,60 @@
+.customization-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  background-color: var(--bg-secondary);
+  color:var(--text-secondary);
+  width: 40rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 3.5rem 1rem !important;
+  border-radius: var(--border-radius);
+}
+
+form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.color-picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.color-field {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="color"] {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 100%;
+  border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 100%;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+  border-radius: 100%;
+}
