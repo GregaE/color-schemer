@@ -17,6 +17,7 @@ export default {
     },
   },
   created() {
+    console.log(import.meta.env.VITE_SERVER_PORT);
     if (!localStorage.getItem("text-primary")) {
       localStorage.setItem("text-primary", "#ffffff");
       localStorage.setItem("text-secondary", "#000000");
@@ -53,6 +54,5 @@ export default {
 </template>
 
 <style>
-/* @import "@/assets/styles/reset.css"; */
 @import "@/assets/styles/main.css";
 </style>
