@@ -4,14 +4,16 @@ import { getRandomColorScheme } from "@/services/colrApiService.js";
 export default {
   methods: {
     getScheme() {
-      getRandomColorScheme().then((res) => this.$emit("change-scheme", res));
+      getRandomColorScheme().then((res) => {
+        res.length > 3 ? this.$emit("change-scheme", res) : this.getScheme();
+      });
     },
   },
 };
 </script>
 
 <template>
-  <div>
+  <div class="generate-scheme">
     <h1>Color Schemer</h1>
     <button @click="getScheme">Generate Scheme</button>
   </div>
