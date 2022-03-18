@@ -4,7 +4,7 @@ import { getRandomColorScheme } from "@/services/colrApiService.js";
 export default {
   methods: {
     getScheme() {
-      getRandomColorScheme().then((res) => console.log(res));
+      getRandomColorScheme().then((res) => this.$emit("change-scheme", res));
     },
   },
 };

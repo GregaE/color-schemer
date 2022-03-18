@@ -1,6 +1,20 @@
+<template>
+  <div>
+    <HomeHeader />
+    <GenerateColor @change-scheme="changeScheme" />
+    <CustomizationView
+      @change-color="changeColor"
+      v-bind:textPrimary="textPrimary"
+      v-bind:textSecondary="textSecondary"
+      v-bind:bgPrimary="bgPrimary"
+      v-bind:bgSecondary="bgSecondary"
+    />
+  </div>
+</template>
+
 <script>
 import HomeHeader from "./components/HomeHeader.vue";
-import HomeView from "./views/HomeView.vue";
+import GenerateColor from "./components/GenerateColor.vue";
 import CustomizationView from "./views/CustomizationView.vue";
 
 const rootScheme = document.querySelector(":root");
@@ -8,7 +22,7 @@ const rootScheme = document.querySelector(":root");
 export default {
   components: {
     HomeHeader,
-    HomeView,
+    GenerateColor,
     CustomizationView,
   },
   methods: {
@@ -23,6 +37,13 @@ export default {
         this.bgSecondary = color;
       }
       rootScheme.style.setProperty(field, color);
+    },
+    changeScheme(colorArr) {
+      console.log(colorArr);
+      this.changeColor("#" + colorArr[0], "--text-primary");
+      this.changeColor("#" + colorArr[1], "--text-secondary");
+      this.changeColor("#" + colorArr[2], "--bg-primary");
+      this.changeColor("#" + colorArr[3], "--bg-secondary");
     },
   },
   data: () => ({
@@ -58,20 +79,6 @@ export default {
   },
 };
 </script>
-
-<template>
-  <div>
-    <HomeHeader />
-    <HomeView v-bind:textPrimary="textPrimary" />
-    <CustomizationView
-      @change-color="changeColor"
-      v-bind:textPrimary="textPrimary"
-      v-bind:textSecondary="textSecondary"
-      v-bind:bgPrimary="bgPrimary"
-      v-bind:bgSecondary="bgSecondary"
-    />
-  </div>
-</template>
 
 <style>
 @import "@/assets/styles/main.css";
