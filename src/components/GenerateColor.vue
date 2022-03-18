@@ -4,9 +4,11 @@ import { getRandomColorScheme } from "@/services/colrApiService.js";
 export default {
   methods: {
     getScheme() {
-      getRandomColorScheme().then((res) => {
-        res.length > 3 ? this.$emit("change-scheme", res) : this.getScheme();
-      });
+      getRandomColorScheme()
+        .then((res) => res.map((color) => "#" + color))
+        .then((res) => {
+          res.length > 3 ? this.$emit("change-scheme", res) : this.getScheme();
+        });
     },
   },
 };

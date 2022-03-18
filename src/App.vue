@@ -9,6 +9,13 @@
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
     />
+    <InvertColors
+      @change-scheme="changeScheme"
+      v-bind:textPrimary="textPrimary"
+      v-bind:textSecondary="textSecondary"
+      v-bind:bgPrimary="bgPrimary"
+      v-bind:bgSecondary="bgSecondary"
+    />
   </div>
 </template>
 
@@ -16,6 +23,7 @@
 import HomeHeader from "./components/HomeHeader.vue";
 import GenerateColor from "./components/GenerateColor.vue";
 import CustomizationView from "./views/CustomizationView.vue";
+import InvertColors from "./components/InvertColors.vue";
 
 const rootScheme = document.querySelector(":root");
 
@@ -24,6 +32,7 @@ export default {
     HomeHeader,
     GenerateColor,
     CustomizationView,
+    InvertColors,
   },
   methods: {
     changeColor(color, field) {
@@ -39,10 +48,10 @@ export default {
       rootScheme.style.setProperty(field, color);
     },
     changeScheme(colorArr) {
-      this.changeColor("#" + colorArr[0], "--text-primary");
-      this.changeColor("#" + colorArr[1], "--text-secondary");
-      this.changeColor("#" + colorArr[2], "--bg-primary");
-      this.changeColor("#" + colorArr[3], "--bg-secondary");
+      this.changeColor(colorArr[0], "--text-primary");
+      this.changeColor(colorArr[1], "--text-secondary");
+      this.changeColor(colorArr[2], "--bg-primary");
+      this.changeColor(colorArr[3], "--bg-secondary");
     },
   },
   beforeCreate() {
