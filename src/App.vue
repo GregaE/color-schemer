@@ -39,21 +39,15 @@ export default {
       rootScheme.style.setProperty(field, color);
     },
     changeScheme(colorArr) {
-      console.log(colorArr);
       this.changeColor("#" + colorArr[0], "--text-primary");
       this.changeColor("#" + colorArr[1], "--text-secondary");
       this.changeColor("#" + colorArr[2], "--bg-primary");
       this.changeColor("#" + colorArr[3], "--bg-secondary");
     },
   },
-  data: () => ({
-    textPrimary: localStorage.getItem("text-primary"),
-    textSecondary: localStorage.getItem("text-secondary"),
-    bgPrimary: localStorage.getItem("bg-primary"),
-    bgSecondary: localStorage.getItem("bg-secondary"),
-  }),
-  created() {
+  beforeCreate() {
     if (!localStorage.getItem("text-primary")) {
+      console.log("here");
       localStorage.setItem("text-primary", "#ffffff");
       localStorage.setItem("text-secondary", "#000000");
       localStorage.setItem("bg-primary", "#3428a1");
@@ -77,6 +71,12 @@ export default {
       );
     }
   },
+  data: () => ({
+    textPrimary: localStorage.getItem("text-primary"),
+    textSecondary: localStorage.getItem("text-secondary"),
+    bgPrimary: localStorage.getItem("bg-primary"),
+    bgSecondary: localStorage.getItem("bg-secondary"),
+  }),
 };
 </script>
 
