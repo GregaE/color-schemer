@@ -9,7 +9,7 @@ form {
   gap: 3rem;
   padding: 3.5rem 1rem 6rem 1rem;
   border-radius: var(--border-radius);
-  box-shadow: #616161 0px 0px 0.357143rem 0px
+  box-shadow: var(--text-primary) 0px 0px 0.357143rem 0px
 }
 
 form > div {

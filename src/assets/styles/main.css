@@ -27,7 +27,7 @@ body,
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: 0.5s;
+  transition: 0.4s;
 }
 
 button {
@@ -48,7 +48,7 @@ button {
   color: var(--bg-secondary);
   border: 1px solid var(--bg-secondary);
   letter-spacing: 2px;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 button:hover {
