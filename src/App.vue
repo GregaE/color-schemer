@@ -13,11 +13,17 @@ export default {
   },
   methods: {
     changeColor(color, field) {
+      this.textPrimary = color;
       rootScheme.style.setProperty(field, color);
     },
   },
+  data: () => ({
+    textPrimary: localStorage.getItem("text-primary"),
+    textSecondary: localStorage.getItem("text-secondary"),
+    bgPrimary: localStorage.getItem("bg-primary"),
+    bgSecondary: localStorage.getItem("bg-secondary"),
+  }),
   created() {
-    console.log(import.meta.env.VITE_SERVER_PORT);
     if (!localStorage.getItem("text-primary")) {
       localStorage.setItem("text-primary", "#ffffff");
       localStorage.setItem("text-secondary", "#000000");
@@ -48,8 +54,14 @@ export default {
 <template>
   <div>
     <HomeHeader />
-    <HomeView />
-    <CustomizationView @change-color="changeColor" />
+    <HomeView v-bind:textPrimary="textPrimary" />
+    <CustomizationView
+      @change-color="changeColor"
+      v-bind:textPrimary="textPrimary"
+      v-bind:textSecondary="textSecondary"
+      v-bind:bgPrimary="bgPrimary"
+      v-bind:bgSecondary="bgSecondary"
+    />
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 header {
   background-color: var(--bg-secondary);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   height: 8rem;
@@ -12,9 +13,4 @@ header img {
 header nav {
   display: flex;
   gap: 1rem;
-}
-
-header nav a {
-  text-decoration: none;
-  color: var(--text-secondary);
 }

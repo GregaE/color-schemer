@@ -12,8 +12,11 @@ export default {
 
 <template>
   <div>
+    <h1>Color Schemer</h1>
     <button @click="getScheme">Generate Scheme</button>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import "@/assets/styles/components/generateColor.css";
+</style>

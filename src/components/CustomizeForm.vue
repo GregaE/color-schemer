@@ -5,12 +5,12 @@ export default {
       this.$emit("change-color", event.target.value, field);
     },
   },
-  data: () => ({
-    textPrimary: localStorage.getItem("text-primary"),
-    textSecondary: localStorage.getItem("text-secondary"),
-    bgPrimary: localStorage.getItem("bg-primary"),
-    bgSecondary: localStorage.getItem("bg-secondary"),
-  }),
+  props: {
+    textPrimary: String,
+    textSecondary: String,
+    bgPrimary: String,
+    bgSecondary: String,
+  },
   watch: {
     textPrimary(newVal) {
       localStorage.setItem("text-primary", newVal);
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <form class="customize-form" :model="form">
+  <form class="customize-form">
     <h1>Customize</h1>
     <div>
       <div class="color-picker">
@@ -37,7 +37,7 @@ export default {
         <div class="color-field">
           <div>{{ textPrimary }}</div>
           <input
-            v-model="textPrimary"
+            :value="textPrimary"
             type="color"
             id="textPrimary"
             @input="onChange($event, '--text-primary')"
@@ -49,7 +49,7 @@ export default {
         <div class="color-field">
           <div>{{ textSecondary }}</div>
           <input
-            v-model="textSecondary"
+            :value="textSecondary"
             type="color"
             id="textSecondary"
             @input="onChange($event, '--text-secondary')"
@@ -61,7 +61,7 @@ export default {
         <div class="color-field">
           <div>{{ bgPrimary }}</div>
           <input
-            v-model="bgPrimary"
+            :value="bgPrimary"
             type="color"
             id="bgPrimary"
             @input="onChange($event, '--bg-primary')"
@@ -73,7 +73,7 @@ export default {
         <div class="color-field">
           <div>{{ bgSecondary }}</div>
           <input
-            v-model="bgSecondary"
+            :value="bgSecondary"
             type="color"
             id="bgSecondary"
             @input="onChange($event, '--bg-secondary')"

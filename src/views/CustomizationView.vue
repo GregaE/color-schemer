@@ -10,13 +10,25 @@ export default {
       this.$emit("change-color", color, field);
     },
   },
-  emits: ["change-color", "hello"],
+  emits: ["change-color"],
+  props: {
+    textPrimary: String,
+    textSecondary: String,
+    bgPrimary: String,
+    bgSecondary: String,
+  },
 };
 </script>
 
 <template>
   <div class="customization-view">
-    <CustomizeForm @change-color="emitColor" />
+    <CustomizeForm
+      @change-color="emitColor"
+      v-bind:textPrimary="textPrimary"
+      v-bind:textSecondary="textSecondary"
+      v-bind:bgPrimary="bgPrimary"
+      v-bind:bgSecondary="bgSecondary"
+    />
   </div>
 </template>
 

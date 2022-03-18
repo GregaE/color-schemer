@@ -43,6 +43,12 @@ input[type="color"] {
   height: 3.5rem;
   border-radius: 100%;
   border: none;
+  cursor: pointer;
+}
+
+input[type="color"]:hover {
+  transform: scale(1.08);
+  transition: 0.5s;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
