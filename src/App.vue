@@ -13,7 +13,15 @@ export default {
   },
   methods: {
     changeColor(color, field) {
-      this.textPrimary = color;
+      if (field === "--text-primary") {
+        this.textPrimary = color;
+      } else if (field === "--text-secondary") {
+        this.textSecondary = color;
+      } else if (field === "--bg-primary") {
+        this.bgPrimary = color;
+      } else if (field === "--bg-secondary") {
+        this.bgSecondary = color;
+      }
       rootScheme.style.setProperty(field, color);
     },
   },
