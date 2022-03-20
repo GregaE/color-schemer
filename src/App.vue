@@ -1,6 +1,12 @@
 <template>
   <div>
-    <HomeHeader />
+    <HomeHeader
+      @toggle-export-modal="toggleExportModal"
+      v-bind:textPrimary="textPrimary"
+      v-bind:textSecondary="textSecondary"
+      v-bind:bgPrimary="bgPrimary"
+      v-bind:bgSecondary="bgSecondary"
+    />
     <GenerateColor @change-scheme="changeScheme" />
     <CustomizationView
       @change-color="changeColor"
@@ -16,6 +22,7 @@
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
     />
+    <ExportModal v-if="exportModalIsActive" />
   </div>
 </template>
 
@@ -24,6 +31,7 @@ import HomeHeader from "./components/HomeHeader.vue";
 import GenerateColor from "./components/GenerateColor.vue";
 import CustomizationView from "./views/CustomizationView.vue";
 import InvertColors from "./components/InvertColors.vue";
+import ExportModal from "./components/ExportModal.vue";
 
 const rootScheme = document.querySelector(":root");
 
@@ -33,7 +41,15 @@ export default {
     GenerateColor,
     CustomizationView,
     InvertColors,
+    ExportModal,
   },
+  data: () => ({
+    textPrimary: localStorage.getItem("text-primary"),
+    textSecondary: localStorage.getItem("text-secondary"),
+    bgPrimary: localStorage.getItem("bg-primary"),
+    bgSecondary: localStorage.getItem("bg-secondary"),
+    exportModalIsActive: false,
+  }),
   methods: {
     changeColor(color, field) {
       if (field === "--text-primary") {
@@ -52,6 +68,9 @@ export default {
       this.changeColor(colorArr[1], "--text-secondary");
       this.changeColor(colorArr[2], "--bg-primary");
       this.changeColor(colorArr[3], "--bg-secondary");
+    },
+    toggleExportModal() {
+      this.exportModalIsActive = !this.exportModalIsActive;
     },
   },
   beforeCreate() {
@@ -80,12 +99,6 @@ export default {
       );
     }
   },
-  data: () => ({
-    textPrimary: localStorage.getItem("text-primary"),
-    textSecondary: localStorage.getItem("text-secondary"),
-    bgPrimary: localStorage.getItem("bg-primary"),
-    bgSecondary: localStorage.getItem("bg-secondary"),
-  }),
 };
 </script>
 

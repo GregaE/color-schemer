@@ -3,14 +3,34 @@ header {
   color: var(--text-secondary);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0rem 2rem;
   height: 8rem;
 }
 
-header img {
+header div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+img {
   height: 80%;
 }
 
-header nav {
+nav {
   display: flex;
   gap: 1rem;
+}
+
+button {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+button:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-secondary);
+  border-color: var(--bg-secondary);
 }

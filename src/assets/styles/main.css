@@ -1,8 +1,8 @@
 :root {
-  --text-primary: #ffffff;
-  --text-secondary: #000000;
-  --bg-primary: #3428a1;
-  --bg-secondary: #ffffff;
+  --text-primary: #D36E44;
+  --text-secondary: #124024;
+  --bg-primary: #0F1E25;
+  --bg-secondary: hsl(0, 0%, 100%);
   --danger: #fa0606;
   --border-radius: 5px;
   --main: 'Poppins', sans-serif;
@@ -27,7 +27,8 @@ body,
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition: 0.4s;
+  transition: color 0.4s;
+  transition: background-color 0.4s;
 }
 
 button {
