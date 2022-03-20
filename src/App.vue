@@ -1,12 +1,6 @@
 <template>
   <div>
-    <HomeHeader
-      @toggle-export-modal="toggleExportModal"
-      v-bind:textPrimary="textPrimary"
-      v-bind:textSecondary="textSecondary"
-      v-bind:bgPrimary="bgPrimary"
-      v-bind:bgSecondary="bgSecondary"
-    />
+    <HomeHeader @toggle-export-modal="toggleExportModal" />
     <GenerateColor @change-scheme="changeScheme" />
     <CustomizationView
       @change-color="changeColor"
@@ -22,7 +16,13 @@
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
     />
-    <ExportModal v-if="exportModalIsActive" />
+    <ExportModal
+      v-if="exportModalIsActive"
+      v-bind:textPrimary="textPrimary"
+      v-bind:textSecondary="textSecondary"
+      v-bind:bgPrimary="bgPrimary"
+      v-bind:bgSecondary="bgSecondary"
+    />
   </div>
 </template>
 
