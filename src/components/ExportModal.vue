@@ -13,7 +13,6 @@ export default {
         e.clipboardData.setData("text/plain", styleCSS);
         e.preventDefault();
       }
-      console.log(this.textPrimary);
       document.addEventListener("copy", listener);
       document.execCommand("copy");
       document.removeEventListener("copy", listener);
@@ -26,18 +25,30 @@ export default {
     bgPrimary: String,
     bgSecondary: String,
   },
+  data() {
+    return {
+      isActive: true,
+    };
+  },
 };
 </script>
 
 <template>
   <div class="export-modal">
     <nav>
-      <div>CSS</div>
+      <div :class="{ selected: isActive }">CSS</div>
       <div>SCSS</div>
       <div>SASS</div>
-      <button v-on:click="copyStyles">Copy</button>
     </nav>
-    <div>Content</div>
+    <pre class="code">
+:root {
+  --text-primary: ${this.textPrimary};
+  --text-secondary: ${this.textSecondary};
+  --bg-primary: ${this.bgPrimary};
+  --bg-secondary: ${this.bgSecondary};
+}
+    </pre>
+    <button v-on:click="copyStyles">Copy to clipboard</button>
   </div>
 </template>
 
