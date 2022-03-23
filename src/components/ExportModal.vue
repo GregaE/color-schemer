@@ -17,7 +17,9 @@ export default {
       document.execCommand("copy");
       document.removeEventListener("copy", listener);
     },
-    toggleStyles() {},
+    toggleStyles() {
+      this.style === "scss";
+    },
   },
   props: {
     textPrimary: String,
@@ -27,7 +29,7 @@ export default {
   },
   data() {
     return {
-      isActive: true,
+      style: "css",
     };
   },
 };
@@ -36,17 +38,35 @@ export default {
 <template>
   <div class="export-modal">
     <nav>
-      <div :class="{ selected: isActive }">CSS</div>
-      <div>SCSS</div>
-      <div>SASS</div>
+      <div :class="{ selected: style === 'css' }" @click="style = 'css'">
+        CSS
+      </div>
+      <div :class="{ selected: style === 'scss' }" @click="style = 'scss'">
+        SCSS
+      </div>
+      <div :class="{ selected: style === 'sass' }" @click="style = 'sass'">
+        SASS
+      </div>
     </nav>
-    <pre class="code">
+    <pre v-if="style === 'css'" class="code">
 :root {
   --text-primary: ${this.textPrimary};
   --text-secondary: ${this.textSecondary};
   --bg-primary: ${this.bgPrimary};
   --bg-secondary: ${this.bgSecondary};
 }
+    </pre>
+    <pre v-if="style === 'scss'" class="code">
+$text-primary: ${this.textPrimary};
+$text-secondary: ${this.textSecondary};
+$bg-primary: ${this.bgPrimary};
+$bg-secondary: ${this.bgSecondary};
+    </pre>
+    <pre v-if="style === 'sass'" class="code">
+$text-primary: ${this.textPrimary}
+$text-secondary: ${this.textSecondary}
+$bg-primary: ${this.bgPrimary}
+$bg-secondary: ${this.bgSecondary}
     </pre>
     <button v-on:click="copyStyles">Copy to clipboard</button>
   </div>
