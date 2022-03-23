@@ -2,12 +2,13 @@
 export default {
   methods: {
     copyStyles() {
-      const styleCSS = `:root {
-        --text-primary: ${this.textPrimary};
-        --text-secondary: ${this.textSecondary};
-        --bg-primary: ${this.bgPrimary};
-        --bg-secondary: ${this.bgSecondary};
-}`;
+      const styleCSS = this.getStyling(
+        this.selectedStyle,
+        this.textPrimary,
+        this.textSecondary,
+        this.bgPrimary,
+        this.bgSecondary
+      );
       function listener(e) {
         e.clipboardData.setData("text/html", styleCSS);
         e.clipboardData.setData("text/plain", styleCSS);
@@ -18,7 +19,27 @@ export default {
       document.removeEventListener("copy", listener);
     },
     toggleStyles() {
-      this.style === "scss";
+      this.selectedStyle === "scss";
+    },
+    getStyling(selectedStyle, style1, style2, style3, style4) {
+      if (selectedStyle === "css") {
+        return `:root {
+  --text-primary: ${style1};
+  --text-secondary: ${style2};
+  --bg-primary: ${style3};
+  --bg-secondary: ${style4};
+}`;
+      } else if (selectedStyle === "scss") {
+        return `$text-primary: ${style1};
+$text-secondary: ${style2};
+$bg-primary: ${style3};
+$bg-secondary: ${style4};`;
+      } else {
+        return `$text-primary: ${style1}
+$text-secondary: ${style2}
+$bg-primary: ${style3}
+$bg-secondary: ${style4}`;
+      }
     },
   },
   props: {
@@ -29,7 +50,7 @@ export default {
   },
   data() {
     return {
-      style: "css",
+      selectedStyle: "css",
     };
   },
 };
@@ -38,35 +59,35 @@ export default {
 <template>
   <div class="export-modal">
     <nav>
-      <div :class="{ selected: style === 'css' }" @click="style = 'css'">
+      <div
+        :class="{ selected: selectedStyle === 'css' }"
+        @click="selectedStyle = 'css'"
+      >
         CSS
       </div>
-      <div :class="{ selected: style === 'scss' }" @click="style = 'scss'">
+      <div
+        :class="{ selected: selectedStyle === 'scss' }"
+        @click="selectedStyle = 'scss'"
+      >
         SCSS
       </div>
-      <div :class="{ selected: style === 'sass' }" @click="style = 'sass'">
+      <div
+        :class="{ selected: selectedStyle === 'sass' }"
+        @click="selectedStyle = 'sass'"
+      >
         SASS
       </div>
     </nav>
-    <pre v-if="style === 'css'" class="code">
-:root {
-  --text-primary: ${this.textPrimary};
-  --text-secondary: ${this.textSecondary};
-  --bg-primary: ${this.bgPrimary};
-  --bg-secondary: ${this.bgSecondary};
-}
-    </pre>
-    <pre v-if="style === 'scss'" class="code">
-$text-primary: ${this.textPrimary};
-$text-secondary: ${this.textSecondary};
-$bg-primary: ${this.bgPrimary};
-$bg-secondary: ${this.bgSecondary};
-    </pre>
-    <pre v-if="style === 'sass'" class="code">
-$text-primary: ${this.textPrimary}
-$text-secondary: ${this.textSecondary}
-$bg-primary: ${this.bgPrimary}
-$bg-secondary: ${this.bgSecondary}
+    <pre class="code"
+      >{{
+        this.getStyling(
+          this.selectedStyle,
+          this.textPrimary,
+          this.textSecondary,
+          this.bgPrimary,
+          this.bgSecondary
+        )
+      }}
     </pre>
     <button v-on:click="copyStyles">Copy to clipboard</button>
   </div>
