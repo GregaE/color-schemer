@@ -28,7 +28,7 @@
 
 <script>
 import HomeHeader from "./components/HomeHeader.vue";
-import GenerateColor from "./components/GenerateColor.vue";
+import GenerateColor from "./components/GenerateScheme.vue";
 import CustomizationView from "./views/CustomizationView.vue";
 import InvertColors from "./components/InvertColors.vue";
 import ExportModal from "./components/ExportModal.vue";

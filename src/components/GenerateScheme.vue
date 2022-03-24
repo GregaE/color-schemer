@@ -17,10 +17,10 @@ export default {
 <template>
   <div class="generate-scheme">
     <h1>Color Schemer</h1>
-    <button @click="getScheme">Generate Scheme</button>
+    <button @click="getScheme">Generate Random Scheme</button>
   </div>
 </template>
 
 <style scoped>
-@import "@/assets/styles/components/generateColor.css";
+@import "@/assets/styles/components/generateScheme.css";
 </style>
