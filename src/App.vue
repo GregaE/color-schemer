@@ -23,6 +23,7 @@
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
     />
+    <AdvancedConfig @change-scheme="changeScheme" />
   </div>
 </template>
 
@@ -32,6 +33,7 @@ import GenerateColor from "./components/GenerateScheme.vue";
 import CustomizationView from "./views/CustomizationView.vue";
 import InvertColors from "./components/InvertColors.vue";
 import ExportModal from "./components/ExportModal.vue";
+import AdvancedConfig from "./components/AdvancedConfig.vue";
 
 const rootScheme = document.querySelector(":root");
 
@@ -42,6 +44,7 @@ export default {
     CustomizationView,
     InvertColors,
     ExportModal,
+    AdvancedConfig,
   },
   data: () => ({
     textPrimary: localStorage.getItem("text-primary"),
