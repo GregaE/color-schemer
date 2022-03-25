@@ -6,7 +6,6 @@ export default {
     getScheme() {
       getColorScheme([this.firstColor, this.secondColor], this.logic)
         .then((res) => {
-          console.log(res.length);
           if (this.counter >= res.length) {
             this.resetCounter();
           }
@@ -27,7 +26,7 @@ export default {
     },
   },
   data: () => ({
-    firstColor: "ffffff6",
+    firstColor: "",
     secondColor: "",
     logic: "AND",
     counter: 0,
@@ -36,7 +35,7 @@ export default {
 </script>
 
 <template>
-  <div class="advanced-config">
+  <div class="advanced-config" id="adv-config-anchor">
     <h1>Advanced Settings</h1>
     <h1>{{ counter }}</h1>
     <div>

@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <div class="generate-scheme">
+  <div class="generate-scheme" id="home-anchor">
     <h1>Color Schemer</h1>
     <button @click="getScheme">Generate Random Scheme</button>
   </div>

@@ -15,8 +15,9 @@ export default {
         height="125"
       />
       <nav>
-        <div to="/">Home</div>
-        <div to="/customize">Customize</div>
+        <a href="#home-anchor">Home</a>
+        <a href="#customize-anchor">Customize</a>
+        <a href="#adv-config-anchor">Advanced</a>
       </nav>
     </div>
     <div>

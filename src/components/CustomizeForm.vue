@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <form class="customize-form">
+  <form class="customize-form" id="customize-anchor">
     <h1>Customize</h1>
     <div>
       <div class="color-picker">
