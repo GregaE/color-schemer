@@ -1,5 +1,5 @@
 <script>
-import { getRandomColorScheme } from "@/services/colrApiService.js";
+import { getRandomColorScheme } from "@/services/colorApiService.js";
 
 export default {
   methods: {

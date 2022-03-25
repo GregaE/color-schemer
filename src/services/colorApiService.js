@@ -12,8 +12,7 @@ async function getRandomColorScheme() {
 async function getColorScheme(colorsArr, logic) {
   try {
     const colors = colorsArr.join(",");
-    console.log(colorsArr);
-    const scheme = await fetch(`${BASE_URL}/getScheme/${colors}/${logic}`);
+    const scheme = await fetch(`${BASE_URL}/getScheme/${colors}/${logic}}`);
     return scheme.json();
   } catch (error) {
     console.log(error);
