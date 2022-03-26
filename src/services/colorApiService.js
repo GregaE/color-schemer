@@ -9,14 +9,14 @@ async function getRandomColorScheme() {
   }
 }
 
-async function getColorScheme(colorsArr, logic) {
+async function getColorSchemes(colorsArr, logic) {
   try {
     const colors = colorsArr.join(",");
-    const scheme = await fetch(`${BASE_URL}/getScheme/${colors}/${logic}}`);
+    const scheme = await fetch(`${BASE_URL}/getSchemes/${colors}/${logic}}`);
     return scheme.json();
   } catch (error) {
     console.log(error);
   }
 }
 
-export { getRandomColorScheme, getColorScheme };
+export { getRandomColorScheme, getColorSchemes };
