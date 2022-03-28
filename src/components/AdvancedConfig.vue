@@ -19,7 +19,6 @@ export default {
           [this.firstColor, this.secondColor],
           this.logic
         ).then((res) => {
-          console.log(res);
           this.colorArr = res;
           this.isLoading = false;
           this.isSelected = true;

@@ -8,6 +8,7 @@
       v-bind:textSecondary="textSecondary"
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
+      v-bind:tertiary="tertiary"
     />
     <InvertColors
       @change-scheme="changeScheme"
@@ -15,6 +16,7 @@
       v-bind:textSecondary="textSecondary"
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
+      v-bind:tertiary="tertiary"
     />
     <ExportModal
       v-if="exportModalIsActive"
@@ -22,6 +24,7 @@
       v-bind:textSecondary="textSecondary"
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
+      v-bind:tertiary="tertiary"
     />
     <AdvancedConfig @change-scheme="changeScheme" />
   </div>
@@ -51,6 +54,7 @@ export default {
     textSecondary: localStorage.getItem("text-secondary"),
     bgPrimary: localStorage.getItem("bg-primary"),
     bgSecondary: localStorage.getItem("bg-secondary"),
+    tertiary: localStorage.getItem("tertiary"),
     exportModalIsActive: false,
   }),
   methods: {
@@ -63,6 +67,8 @@ export default {
         this.bgPrimary = color;
       } else if (field === "--bg-secondary") {
         this.bgSecondary = color;
+      } else if (field === "--tertiary") {
+        this.tertiary = color;
       }
       rootScheme.style.setProperty(field, color);
     },
@@ -71,6 +77,7 @@ export default {
       this.changeColor(colorArr[1], "--text-secondary");
       this.changeColor(colorArr[2], "--bg-primary");
       this.changeColor(colorArr[3], "--bg-secondary");
+      this.changeColor(colorArr[4], "--tertiary");
     },
     toggleExportModal() {
       this.exportModalIsActive = !this.exportModalIsActive;
@@ -83,6 +90,7 @@ export default {
       localStorage.setItem("text-secondary", "#000000");
       localStorage.setItem("bg-primary", "#3428a1");
       localStorage.setItem("bg-secondary", "#fff9ff");
+      localStorage.setItem("tertiary", "#000000");
     } else {
       rootScheme.style.setProperty(
         "--text-primary",
@@ -99,6 +107,10 @@ export default {
       rootScheme.style.setProperty(
         "--bg-secondary",
         localStorage.getItem("bg-secondary")
+      );
+      rootScheme.style.setProperty(
+        "--tertiary",
+        localStorage.getItem("tertiary")
       );
     }
   },

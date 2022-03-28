@@ -16,6 +16,7 @@ export default {
     textSecondary: String,
     bgPrimary: String,
     bgSecondary: String,
+    tertiary: String,
   },
 };
 </script>
@@ -28,6 +29,7 @@ export default {
       v-bind:textSecondary="textSecondary"
       v-bind:bgPrimary="bgPrimary"
       v-bind:bgSecondary="bgSecondary"
+      v-bind:tertiary="tertiary"
     />
   </div>
 </template>

@@ -7,7 +7,8 @@ export default {
         this.textPrimary,
         this.textSecondary,
         this.bgPrimary,
-        this.bgSecondary
+        this.bgSecondary,
+        this.tertiary
       );
       function listener(e) {
         e.clipboardData.setData("text/html", styleCSS);
@@ -21,13 +22,14 @@ export default {
     toggleStyles() {
       this.selectedStyle === "scss";
     },
-    getStyling(selectedStyle, style1, style2, style3, style4) {
+    getStyling(selectedStyle, style1, style2, style3, style4, style5) {
       if (selectedStyle === "css") {
         return `:root {
   --text-primary: ${style1};
   --text-secondary: ${style2};
   --bg-primary: ${style3};
   --bg-secondary: ${style4};
+  --tertiary: ${style5};
 }`;
       } else if (selectedStyle === "scss") {
         return `$text-primary: ${style1};
@@ -38,7 +40,8 @@ $bg-secondary: ${style4};`;
         return `$text-primary: ${style1}
 $text-secondary: ${style2}
 $bg-primary: ${style3}
-$bg-secondary: ${style4}`;
+$bg-secondary: ${style4}
+$tertiary: ${style5}`;
       }
     },
   },
@@ -47,6 +50,7 @@ $bg-secondary: ${style4}`;
     textSecondary: String,
     bgPrimary: String,
     bgSecondary: String,
+    tertiary: String,
   },
   data() {
     return {
@@ -85,7 +89,8 @@ $bg-secondary: ${style4}`;
           this.textPrimary,
           this.textSecondary,
           this.bgPrimary,
-          this.bgSecondary
+          this.bgSecondary,
+          this.tertiary
         )
       }}
     </pre>

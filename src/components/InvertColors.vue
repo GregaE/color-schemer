@@ -7,14 +7,16 @@ export default {
         this.textPrimary,
         this.bgPrimary,
         this.bgSecondary,
+        this.tertiary,
       ]);
     },
     invertBg() {
       this.$emit("change-scheme", [
         this.textPrimary,
         this.textSecondary,
-        this.bgSecondary,
         this.bgPrimary,
+        this.bgSecondary,
+        this.tertiary,
       ]);
     },
   },
@@ -23,6 +25,7 @@ export default {
     textSecondary: String,
     bgPrimary: String,
     bgSecondary: String,
+    tertiary: String,
   },
 };
 </script>

@@ -10,6 +10,7 @@ export default {
     textSecondary: String,
     bgPrimary: String,
     bgSecondary: String,
+    tertiary: String,
   },
   watch: {
     textPrimary(newVal) {
@@ -23,6 +24,9 @@ export default {
     },
     bgSecondary(newVal) {
       localStorage.setItem("bg-secondary", newVal);
+    },
+    tertiary(newVal) {
+      localStorage.setItem("tertiary", newVal);
     },
   },
 };
@@ -77,6 +81,18 @@ export default {
             type="color"
             id="bgSecondary"
             @input="onChange($event, '--bg-secondary')"
+          />
+        </div>
+      </div>
+      <div class="color-picker">
+        <label for="tertiary">Tertiary</label>
+        <div class="color-field">
+          <div>{{ tertiary }}</div>
+          <input
+            :value="tertiary"
+            type="color"
+            id="tertiary"
+            @input="onChange($event, '--tertiary')"
           />
         </div>
       </div>
