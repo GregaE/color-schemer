@@ -30,7 +30,7 @@ export default {
           return;
         }
         if (this.counter >= this.colorArr.length) {
-          this.resetSelected();
+          this.counter = 0;
         }
         const currScheme = this.colorArr[this.counter].colors.map(
           (color) => "#" + color
