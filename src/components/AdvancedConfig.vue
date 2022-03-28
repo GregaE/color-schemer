@@ -4,7 +4,6 @@ import { getColorSchemes } from "@/services/colorApiService.js";
 export default {
   methods: {
     async getScheme() {
-      this.hasError = false;
       if (!this.firstColor && !this.secondColor) {
         return;
       }
@@ -12,7 +11,6 @@ export default {
         (this.firstColor && !/[0-9A-F]{6}$/i.test(this.firstColor)) ||
         (this.secondColor && !/[0-9A-F]{6}$/i.test(this.secondColor))
       ) {
-        console.log(this.firstColor);
         return;
       }
       if (!this.isSelected) {
@@ -84,7 +82,6 @@ export default {
     colorArr: [],
     isSelected: false,
     isLoading: false,
-    hasError: false,
   }),
 };
 </script>
