@@ -5,7 +5,7 @@ async function getRandomColorScheme() {
     const scheme = await fetch(`${BASE_URL}/getRandomScheme`);
     return scheme.json();
   } catch (error) {
-    console.log(error);
+    return error;
   }
 }
 
