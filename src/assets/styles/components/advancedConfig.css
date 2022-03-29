@@ -78,3 +78,14 @@
   margin-left: 3.6rem;
   background-color: var(--text-secondary);
 }
+
+.v-enter-active,
+.v-leave-active {
+  transition: 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(-3rem)
+}

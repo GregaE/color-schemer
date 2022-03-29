@@ -98,24 +98,28 @@ export default {
           placeholder="000000"
         />
       </div>
-      <div class="color-container" v-if="secondColor">
-        <div
-          class="toggle-container"
-          :class="{ toggled: logic === 'OR' }"
-          @click="toggleLogic"
-        >
-          <div class="toggle-btn"></div>
+      <Transition>
+        <div class="color-container" v-if="secondColor">
+          <div
+            class="toggle-container"
+            :class="{ toggled: logic === 'OR' }"
+            @click="toggleLogic"
+          >
+            <div class="toggle-btn"></div>
+          </div>
         </div>
-      </div>
-      <div class="color-container" v-if="firstColor">
-        <label>Color 2 (optional)</label>
-        <input
-          type="text"
-          @input="resetSelected"
-          v-model="secondColor"
-          placeholder="FFFFFF"
-        />
-      </div>
+      </Transition>
+      <Transition>
+        <div class="color-container" v-if="firstColor">
+          <label>Color 2 (optional)</label>
+          <input
+            type="text"
+            @input="resetSelected"
+            v-model="secondColor"
+            placeholder="FFFFFF"
+          />
+        </div>
+      </Transition>
     </div>
     <div>
       {{ this.displayResults() }}

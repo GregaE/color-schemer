@@ -27,6 +27,7 @@
       v-bind:tertiary="tertiary"
     />
     <AdvancedConfig @change-scheme="changeScheme" />
+    <HomeFooter />
   </div>
 </template>
 
@@ -37,6 +38,7 @@ import CustomizationView from "./views/CustomizationView.vue";
 import InvertColors from "./components/InvertColors.vue";
 import ExportModal from "./components/ExportModal.vue";
 import AdvancedConfig from "./components/AdvancedConfig.vue";
+import HomeFooter from "./components/HomeFooter.vue";
 
 const rootScheme = document.querySelector(":root");
 
@@ -48,6 +50,7 @@ export default {
     InvertColors,
     ExportModal,
     AdvancedConfig,
+    HomeFooter,
   },
   data: () => ({
     textPrimary: localStorage.getItem("text-primary"),
