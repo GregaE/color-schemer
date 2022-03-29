@@ -89,18 +89,6 @@ export default {
   <div class="advanced-config" id="adv-config-anchor">
     <h1>Advanced Settings</h1>
     <div>
-      <div
-        class="toggle-container"
-        :class="{ toggled: logic === 'OR' }"
-        @click="toggleLogic"
-      >
-        <div class="toggle-btn"></div>
-      </div>
-      <button id="logic-toggle" @click="toggleLogic">
-        {{ logic }}
-      </button>
-    </div>
-    <div>
       <div>
         <label>Color 1</label>
         <input
@@ -109,6 +97,15 @@ export default {
           v-model="firstColor"
           placeholder="000000"
         />
+      </div>
+      <div v-if="secondColor">
+        <div
+          class="toggle-container"
+          :class="{ toggled: logic === 'OR' }"
+          @click="toggleLogic"
+        >
+          <div class="toggle-btn"></div>
+        </div>
       </div>
       <div v-if="firstColor">
         <label>Color 2 (optional)</label>

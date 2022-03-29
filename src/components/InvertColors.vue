@@ -14,8 +14,8 @@ export default {
       this.$emit("change-scheme", [
         this.textPrimary,
         this.textSecondary,
-        this.bgPrimary,
         this.bgSecondary,
+        this.bgPrimary,
         this.tertiary,
       ]);
     },

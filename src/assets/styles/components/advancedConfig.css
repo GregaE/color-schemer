@@ -8,50 +8,61 @@
 
 .toggle-container {
   position:relative;
-  width: 50px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
+  width: 6.5rem;
+  height: 2.6rem;
+  border-radius: 100rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-weight: bold;
   cursor: pointer;
   margin-top: 5px;
+  z-index: 1;
 }
 
 .toggle-container:before {
   position: absolute;
   top: 50%;
-  margin-top: -0.5em;
-  line-height: 1;
-  content: "AND";
-  margin-left: 25px;
-  transition: 0.5s;
-}
-
-/* .toggle-container:after {
-  position: absolute;
-  top: 50%;
-  margin-top: -0.5em;
+  margin-top: -0.6rem;
+  margin-left: 0.9rem;
   line-height: 1;
   content: "OR";
-  margin-left: 25px;
-} */
+  opacity: 0;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.toggle-container:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.45em;
+  margin-left: 3.0rem;
+  line-height: 1;
+  content: "AND";
+  opacity: 1;
+  transition: 0.5s;
+  z-index: -1;
+}
 
 .toggle-btn {
   position: relative;
-  left: 4px;
-  top: 2px;
-  width: 16px;
-  height: 16px;
-  border-radius: 10px;
-  background-color:  var(--text-secondary);
+  left: 0.4rem;
+  top: 0.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 100rem;
+  background-color:  var(--text-primary);
   transition: 0.5s;
 }
 
 .toggled:before {
-  content: "OR";
-  margin-left: 0px;
+  opacity: 1;
+}
+
+.toggled:after {
+  opacity: 0;
 }
 
 .toggled .toggle-btn {
-  margin-left: 25px;
+  margin-left: 3.6rem;
+  background-color: var(--text-secondary);
 }
