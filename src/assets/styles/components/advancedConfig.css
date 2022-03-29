@@ -6,6 +6,18 @@
   gap: 2rem;
 }
 
+.color-container {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.color-container label {
+  align-self: start;
+}
+
 .toggle-container {
   position:relative;
   width: 6.5rem;
@@ -46,7 +58,7 @@
 .toggle-btn {
   position: relative;
   left: 0.4rem;
-  top: 0.2rem;
+  top: 0.25rem;
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 100rem;

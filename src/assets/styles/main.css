@@ -62,6 +62,7 @@ button:hover {
 button:active {
   background: var(--bg-secondary);
   color: var(--bg-primary);
+  transform: scale(0.95);
 }
 
 input[type=text] {

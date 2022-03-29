@@ -89,7 +89,7 @@ export default {
   <div class="advanced-config" id="adv-config-anchor">
     <h1>Advanced Settings</h1>
     <div>
-      <div>
+      <div class="color-container">
         <label>Color 1</label>
         <input
           type="text"
@@ -98,7 +98,7 @@ export default {
           placeholder="000000"
         />
       </div>
-      <div v-if="secondColor">
+      <div class="color-container" v-if="secondColor">
         <div
           class="toggle-container"
           :class="{ toggled: logic === 'OR' }"
@@ -107,7 +107,7 @@ export default {
           <div class="toggle-btn"></div>
         </div>
       </div>
-      <div v-if="firstColor">
+      <div class="color-container" v-if="firstColor">
         <label>Color 2 (optional)</label>
         <input
           type="text"
