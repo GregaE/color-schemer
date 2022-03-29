@@ -5,3 +5,53 @@
   align-items: center;
   gap: 2rem;
 }
+
+.toggle-container {
+  position:relative;
+  width: 50px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.toggle-container:before {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  line-height: 1;
+  content: "AND";
+  margin-left: 25px;
+  transition: 0.5s;
+}
+
+/* .toggle-container:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  line-height: 1;
+  content: "OR";
+  margin-left: 25px;
+} */
+
+.toggle-btn {
+  position: relative;
+  left: 4px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  background-color:  var(--text-secondary);
+  transition: 0.5s;
+}
+
+.toggled:before {
+  content: "OR";
+  margin-left: 0px;
+}
+
+.toggled .toggle-btn {
+  margin-left: 25px;
+}
