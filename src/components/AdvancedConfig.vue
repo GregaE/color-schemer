@@ -89,16 +89,16 @@ export default {
   <div class="advanced-config" id="adv-config-anchor">
     <h1>Advanced Settings</h1>
     <div>
-      <div class="color-container">
-        <label>Color 1</label>
-        <input
-          type="text"
-          @input="resetSelected"
-          v-model="firstColor"
-          placeholder="000000"
-        />
-      </div>
-      <Transition>
+      <TransitionGroup>
+        <div class="color-container">
+          <label>Color 1</label>
+          <input
+            type="text"
+            @input="resetSelected"
+            v-model="firstColor"
+            placeholder="000000"
+          />
+        </div>
         <div class="color-container" v-if="secondColor">
           <div
             class="toggle-container"
@@ -108,8 +108,6 @@ export default {
             <div class="toggle-btn"></div>
           </div>
         </div>
-      </Transition>
-      <Transition>
         <div class="color-container" v-if="firstColor">
           <label>Color 2 (optional)</label>
           <input
@@ -119,7 +117,7 @@ export default {
             placeholder="FFFFFF"
           />
         </div>
-      </Transition>
+      </TransitionGroup>
     </div>
     <div>
       {{ this.displayResults() }}
