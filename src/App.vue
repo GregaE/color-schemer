@@ -117,6 +117,15 @@ export default {
       );
     }
   },
+  provide() {
+    return {
+      textPrimary: this.textPrimary,
+      textSecondary: this.textSecondary,
+      bgPrimary: this.bgPrimary,
+      bgSecondary: this.bgSecondary,
+      tertiary: this.tertiary,
+    };
+  },
 };
 </script>
 

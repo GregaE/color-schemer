@@ -38,7 +38,7 @@ i {
   transition: color 0.1s;
 }
 
-i:hover, i:active, i:focus  {
+i:hover, i:active, i:focus, .active  {
   color: var(--tertiary);
 }
 

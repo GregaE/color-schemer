@@ -5,7 +5,9 @@ export default {
   components: {
     SaveModal,
   },
-  methods: {},
+  data: () => ({
+    isActive: false,
+  }),
 };
 </script>
 
@@ -26,10 +28,14 @@ export default {
       </nav>
     </div>
     <div>
-      <i class="fa fa-heart" />
+      <i
+        class="fa fa-heart"
+        :class="{ active: isActive }"
+        @click="isActive = !isActive"
+      />
       <button v-on:click="$emit('toggle-export-modal')">Export Scheme</button>
     </div>
-    <SaveModal />
+    <SaveModal v-if="isActive" @deactivate="isActive = false" />
   </header>
 </template>
 

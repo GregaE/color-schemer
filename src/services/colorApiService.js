@@ -11,7 +11,6 @@ async function getRandomColorScheme() {
 
 async function getColorSchemes(colorsArr, logic) {
   try {
-    console.log(colorsArr, logic);
     const colors = colorsArr.join(",");
     const scheme = await fetch(`${BASE_URL}/schemes/${colors}/${logic}`);
     return scheme.json();
@@ -20,4 +19,20 @@ async function getColorSchemes(colorsArr, logic) {
   }
 }
 
-export { getRandomColorScheme, getColorSchemes };
+async function createScheme(schemeName, colorArr, user_id) {
+  try {
+    const newScheme = await fetch(`${BASE_URL}/user-schemes/${user_id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: schemeName,
+        colors: colorArr,
+      }),
+    });
+    return newScheme.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getRandomColorScheme, getColorSchemes, createScheme };
