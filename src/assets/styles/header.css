@@ -31,6 +31,17 @@ nav a {
   color: var(--text-secondary);
 }
 
+i {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: color 0.1s;
+}
+
+i:hover, i:active, i:focus  {
+  color: var(--tertiary);
+}
+
 button {
   background-color: var(--bg-secondary);
   color: var(--text-primary);

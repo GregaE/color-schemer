@@ -1,5 +1,10 @@
 <script>
+import SaveModal from "./SaveModal.vue";
+
 export default {
+  components: {
+    SaveModal,
+  },
   methods: {},
 };
 </script>
@@ -21,8 +26,10 @@ export default {
       </nav>
     </div>
     <div>
+      <i class="fa fa-heart" />
       <button v-on:click="$emit('toggle-export-modal')">Export Scheme</button>
     </div>
+    <SaveModal />
   </header>
 </template>
 
