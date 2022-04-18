@@ -35,4 +35,34 @@ async function createScheme(schemeName, colorArr, user_id) {
   }
 }
 
-export { getRandomColorScheme, getColorSchemes, createScheme };
+async function getSavedSchemes(user_id) {
+  try {
+    const savedSchemes = await fetch(`${BASE_URL}/user-schemes/${user_id}`);
+    return savedSchemes.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function deleteScheme(schemeId, user_id) {
+  try {
+    const deletedScheme = await fetch(`${BASE_URL}/user-schemes/${user_id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: schemeId,
+      }),
+    });
+    return deletedScheme.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export {
+  getRandomColorScheme,
+  getColorSchemes,
+  createScheme,
+  getSavedSchemes,
+  deleteScheme,
+};

@@ -4,29 +4,30 @@
     <GenerateColor @change-scheme="changeScheme" />
     <CustomizationView
       @change-color="changeColor"
-      v-bind:textPrimary="textPrimary"
-      v-bind:textSecondary="textSecondary"
-      v-bind:bgPrimary="bgPrimary"
-      v-bind:bgSecondary="bgSecondary"
-      v-bind:tertiary="tertiary"
+      :textPrimary="textPrimary"
+      :textSecondary="textSecondary"
+      :bgPrimary="bgPrimary"
+      :bgSecondary="bgSecondary"
+      :tertiary="tertiary"
     />
     <InvertColors
       @change-scheme="changeScheme"
-      v-bind:textPrimary="textPrimary"
-      v-bind:textSecondary="textSecondary"
-      v-bind:bgPrimary="bgPrimary"
-      v-bind:bgSecondary="bgSecondary"
-      v-bind:tertiary="tertiary"
+      :textPrimary="textPrimary"
+      :textSecondary="textSecondary"
+      :bgPrimary="bgPrimary"
+      :bgSecondary="bgSecondary"
+      :tertiary="tertiary"
     />
     <ExportModal
       v-if="exportModalIsActive"
-      v-bind:textPrimary="textPrimary"
-      v-bind:textSecondary="textSecondary"
-      v-bind:bgPrimary="bgPrimary"
-      v-bind:bgSecondary="bgSecondary"
-      v-bind:tertiary="tertiary"
+      :textPrimary="textPrimary"
+      :textSecondary="textSecondary"
+      :bgPrimary="bgPrimary"
+      :bgSecondary="bgSecondary"
+      :tertiary="tertiary"
     />
     <AdvancedConfig @change-scheme="changeScheme" />
+    <UserSchemesView />
     <HomeFooter />
   </div>
 </template>
@@ -39,6 +40,7 @@ import InvertColors from "./components/InvertColors.vue";
 import ExportModal from "./components/ExportModal.vue";
 import AdvancedConfig from "./components/AdvancedConfig.vue";
 import HomeFooter from "./components/HomeFooter.vue";
+import UserSchemesView from "./views/UserSchemesView.vue";
 
 const rootScheme = document.querySelector(":root");
 
@@ -51,6 +53,7 @@ export default {
     ExportModal,
     AdvancedConfig,
     HomeFooter,
+    UserSchemesView,
   },
   data: () => ({
     textPrimary: localStorage.getItem("text-primary"),

@@ -41,5 +41,5 @@ export default {
 </template>
 
 <style scoped>
-@import "@/assets/styles/saveModal.css";
+@import "@/assets/styles/components/saveModal.css";
 </style>

@@ -35,7 +35,8 @@ export default {
         return `$text-primary: ${style1};
 $text-secondary: ${style2};
 $bg-primary: ${style3};
-$bg-secondary: ${style4};`;
+$bg-secondary: ${style4};
+$tertiary: ${style5};`;
       } else {
         return `$text-primary: ${style1}
 $text-secondary: ${style2}
