@@ -2,13 +2,6 @@
 import { createScheme } from "../services/colorApiService.js";
 
 export default {
-  inject: [
-    "textPrimary",
-    "textSecondary",
-    "bgPrimary",
-    "bgSecondary",
-    "tertiary",
-  ],
   data: () => ({
     nameInput: "",
   }),
@@ -18,11 +11,11 @@ export default {
       createScheme(
         this.nameInput,
         [
-          this.textPrimary,
-          this.textSecondary,
-          this.bgPrimary,
-          this.bgSecondary,
-          this.tertiary,
+          localStorage.getItem("text-primary"),
+          localStorage.getItem("text-secondary"),
+          localStorage.getItem("bg-primary"),
+          localStorage.getItem("bg-secondary"),
+          localStorage.getItem("tertiary"),
         ],
         "6245d8c249e428cdbaa8d920"
       );
@@ -37,6 +30,7 @@ export default {
     <label for="scheme-name">Scheme Name</label>
     <input id="scheme-name" v-model="nameInput" />
     <button type="submit">Save Scheme</button>
+    {{ this.textPrimary }}
   </form>
 </template>
 

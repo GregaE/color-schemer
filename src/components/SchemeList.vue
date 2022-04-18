@@ -13,6 +13,9 @@ export default {
     emitRemove(id) {
       this.$emit("remove", id);
     },
+    emitApply(colors) {
+      this.$emit("apply", colors);
+    },
   },
 };
 </script>
@@ -25,6 +28,7 @@ export default {
       :key="scheme.id"
       :scheme="scheme"
       @remove="emitRemove"
+      @apply="emitApply"
     />
   </div>
 </template>

@@ -27,7 +27,7 @@
       :tertiary="tertiary"
     />
     <AdvancedConfig @change-scheme="changeScheme" />
-    <UserSchemesView />
+    <UserSchemesView @apply="changeScheme" />
     <HomeFooter />
   </div>
 </template>
@@ -91,7 +91,6 @@ export default {
   },
   beforeCreate() {
     if (!localStorage.getItem("text-primary")) {
-      console.log("here");
       localStorage.setItem("text-primary", "#ffffff");
       localStorage.setItem("text-secondary", "#000000");
       localStorage.setItem("bg-primary", "#3428a1");
@@ -119,15 +118,6 @@ export default {
         localStorage.getItem("tertiary")
       );
     }
-  },
-  provide() {
-    return {
-      textPrimary: this.textPrimary,
-      textSecondary: this.textSecondary,
-      bgPrimary: this.bgPrimary,
-      bgSecondary: this.bgSecondary,
-      tertiary: this.tertiary,
-    };
   },
 };
 </script>
