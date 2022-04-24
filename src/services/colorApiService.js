@@ -59,10 +59,27 @@ async function deleteScheme(schemeId, user_id) {
   }
 }
 
+async function renameScheme(schemeId, user_id, newName) {
+  try {
+    const renamedScheme = await fetch(`${BASE_URL}/user-schemes/${user_id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: schemeId,
+        newName: newName,
+      }),
+    });
+    return renamedScheme.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export {
   getRandomColorScheme,
   getColorSchemes,
   createScheme,
   getSavedSchemes,
   deleteScheme,
+  renameScheme,
 };

@@ -16,6 +16,9 @@ export default {
     emitApply(colors) {
       this.$emit("apply", colors);
     },
+    emitRename(id, newName) {
+      this.$emit("rename", id, newName);
+    },
   },
 };
 </script>
@@ -29,6 +32,7 @@ export default {
       :scheme="scheme"
       @remove="emitRemove"
       @apply="emitApply"
+      @rename="emitRename"
     />
   </div>
 </template>
