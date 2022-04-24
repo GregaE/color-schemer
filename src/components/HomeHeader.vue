@@ -8,6 +8,12 @@ export default {
   data: () => ({
     isActive: false,
   }),
+  emits: ["create", "deactivate"],
+  methods: {
+    emitCreate(name) {
+      this.$emit("create", name);
+    },
+  },
 };
 </script>
 
@@ -35,7 +41,11 @@ export default {
       />
       <button v-on:click="$emit('toggle-export-modal')">Export Scheme</button>
     </div>
-    <SaveModal v-if="isActive" @deactivate="isActive = false" />
+    <SaveModal
+      v-if="isActive"
+      @create="emitCreate"
+      @deactivate="isActive = false"
+    />
   </header>
 </template>
 

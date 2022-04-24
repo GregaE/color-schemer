@@ -9,11 +9,12 @@ export default {
     emitRename(e) {
       if (e instanceof KeyboardEvent && e.code !== "Enter") return;
       if (this.isOpen) {
-        this.$emit(
-          "rename",
-          this.scheme._id,
-          document.getElementById("rename-input").value
-        );
+        if (this.scheme.name !== document.getElementById("rename-input").value)
+          this.$emit(
+            "rename",
+            this.scheme._id,
+            document.getElementById("rename-input").value
+          );
       }
       this.isOpen = !this.isOpen;
     },

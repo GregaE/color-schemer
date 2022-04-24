@@ -1,42 +1,24 @@
 <script>
-import {
-  getSavedSchemes,
-  deleteScheme,
-  renameScheme,
-} from "../services/colorApiService.js";
 import SchemeList from "../components/UserScheme/SchemeList.vue";
 
 export default {
   components: {
     SchemeList,
   },
-  data: () => ({
-    schemeList: [],
-  }),
-  emits: ["apply"],
+  props: {
+    schemeList: Array,
+  },
+  emits: ["remove", "apply", "rename"],
   methods: {
-    remove(id) {
-      deleteScheme(id, "6245d8c249e428cdbaa8d920");
-      this.schemeList = this.schemeList.filter((scheme) => scheme._id !== id);
-    },
-    rename(id, newName) {
-      renameScheme(id, "6245d8c249e428cdbaa8d920", newName);
-      this.schemeList = this.schemeList.map((scheme) => {
-        if (scheme._id === id) {
-          return Object.assign({}, scheme, { name: newName });
-        }
-        return scheme;
-      });
-      console.log(this.schemeList);
+    emitRemove(id) {
+      this.$emit("remove", id);
     },
     emitApply(colors) {
       this.$emit("apply", colors);
     },
-  },
-  mounted() {
-    getSavedSchemes("6245d8c249e428cdbaa8d920").then(
-      (data) => (this.schemeList = data)
-    );
+    emitRename(id, newName) {
+      this.$emit("rename", id, newName);
+    },
   },
 };
 </script>
@@ -45,9 +27,9 @@ export default {
   <div>
     <SchemeList
       :schemeList="schemeList"
-      @remove="remove"
+      @remove="emitRemove"
       @apply="emitApply"
-      @rename="rename"
+      @rename="emitRename"
     />
   </div>
 </template>

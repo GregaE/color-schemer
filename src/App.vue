@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeHeader @toggle-export-modal="toggleExportModal" />
+    <HomeHeader @toggle-export-modal="toggleExportModal" @create="create" />
     <GenerateColor @change-scheme="changeScheme" />
     <CustomizationView
       @change-color="changeColor"
@@ -27,7 +27,12 @@
       :tertiary="tertiary"
     />
     <AdvancedConfig @change-scheme="changeScheme" />
-    <UserSchemesView @apply="changeScheme" />
+    <UserSchemesView
+      @remove="remove"
+      @apply="changeScheme"
+      @rename="rename"
+      :schemeList="userSchemeList"
+    />
     <HomeFooter />
   </div>
 </template>
@@ -41,6 +46,12 @@ import ExportModal from "./components/ExportModal.vue";
 import AdvancedConfig from "./components/AdvancedConfig.vue";
 import HomeFooter from "./components/HomeFooter.vue";
 import UserSchemesView from "./views/UserSchemesView.vue";
+import {
+  getSavedSchemes,
+  createScheme,
+  deleteScheme,
+  renameScheme,
+} from "./services/colorApiService.js";
 
 const rootScheme = document.querySelector(":root");
 
@@ -62,6 +73,7 @@ export default {
     bgSecondary: localStorage.getItem("bg-secondary"),
     tertiary: localStorage.getItem("tertiary"),
     exportModalIsActive: false,
+    userSchemeList: [],
   }),
   methods: {
     changeColor(color, field) {
@@ -87,6 +99,51 @@ export default {
     },
     toggleExportModal() {
       this.exportModalIsActive = !this.exportModalIsActive;
+    },
+    create(name) {
+      createScheme(
+        name,
+        [
+          this.textPrimary,
+          this.textSecondary,
+          this.bgPrimary,
+          this.bgSecondary,
+          this.tertiary,
+        ],
+        "6245d8c249e428cdbaa8d920"
+      );
+      this.userSchemeList = [
+        ...this.userSchemeList,
+        {
+          name: name,
+          colors: [
+            this.textPrimary,
+            this.textSecondary,
+            this.bgPrimary,
+            this.bgSecondary,
+            this.tertiary,
+          ],
+          _id: "6245d8c249e428cdbaa8d920",
+        },
+      ];
+    },
+    remove(id) {
+      deleteScheme(id, "6245d8c249e428cdbaa8d920");
+      this.userSchemeList = this.userSchemeList.filter(
+        (scheme) => scheme._id !== id
+      );
+    },
+    rename(id, newName) {
+      renameScheme(id, "6245d8c249e428cdbaa8d920", newName);
+      this.userSchemeList = this.userSchemeList.map((scheme) => {
+        if (scheme._id === id) {
+          return Object.assign({}, scheme, { name: newName });
+        }
+        return scheme;
+      });
+    },
+    emitApply(colors) {
+      this.$emit("apply", colors);
     },
   },
   beforeCreate() {
@@ -118,6 +175,11 @@ export default {
         localStorage.getItem("tertiary")
       );
     }
+  },
+  mounted() {
+    getSavedSchemes("6245d8c249e428cdbaa8d920").then(
+      (data) => (this.userSchemeList = data)
+    );
   },
 };
 </script>
