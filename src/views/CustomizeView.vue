@@ -1,3 +1,4 @@
+/* eslint-disable vue/multi-word-component-names */
 <script>
 import CustomizeForm from "@/components/CustomizeForm.vue";
 
@@ -34,6 +35,6 @@ export default {
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/customizeView.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/customizeView.scss";
 </style>

@@ -23,6 +23,6 @@ export default {
   </form>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/saveModal.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/saveModal.scss";
 </style>

@@ -1,38 +1,41 @@
 <template>
   <div>
     <HomeHeader @toggle-export-modal="toggleExportModal" @create="create" />
-    <GenerateColor @change-scheme="changeScheme" />
-    <CustomizationView
-      @change-color="changeColor"
-      :textPrimary="textPrimary"
-      :textSecondary="textSecondary"
-      :bgPrimary="bgPrimary"
-      :bgSecondary="bgSecondary"
-      :tertiary="tertiary"
-    />
-    <InvertColors
-      @change-scheme="changeScheme"
-      :textPrimary="textPrimary"
-      :textSecondary="textSecondary"
-      :bgPrimary="bgPrimary"
-      :bgSecondary="bgSecondary"
-      :tertiary="tertiary"
-    />
-    <ExportModal
-      v-if="exportModalIsActive"
-      :textPrimary="textPrimary"
-      :textSecondary="textSecondary"
-      :bgPrimary="bgPrimary"
-      :bgSecondary="bgSecondary"
-      :tertiary="tertiary"
-    />
-    <AdvancedConfig @change-scheme="changeScheme" />
-    <UserSchemesView
-      @remove="remove"
-      @apply="changeScheme"
-      @rename="rename"
-      :schemeList="userSchemeList"
-    />
+    <main>
+      <!-- <GenerateColor @change-scheme="changeScheme" />
+      <CustomizeView
+        @change-color="changeColor"
+        :textPrimary="textPrimary"
+        :textSecondary="textSecondary"
+        :bgPrimary="bgPrimary"
+        :bgSecondary="bgSecondary"
+        :tertiary="tertiary"
+      />
+      <InvertColors
+        @change-scheme="changeScheme"
+        :textPrimary="textPrimary"
+        :textSecondary="textSecondary"
+        :bgPrimary="bgPrimary"
+        :bgSecondary="bgSecondary"
+        :tertiary="tertiary"
+      />
+      <ExportModal
+        v-if="exportModalIsActive"
+        :textPrimary="textPrimary"
+        :textSecondary="textSecondary"
+        :bgPrimary="bgPrimary"
+        :bgSecondary="bgSecondary"
+        :tertiary="tertiary"
+      />
+      <AdvancedConfig @change-scheme="changeScheme" />
+      <UserSchemes
+        @remove="remove"
+        @apply="changeScheme"
+        @rename="rename"
+        :schemeList="userSchemeList"
+      /> -->
+      <router-view />
+    </main>
     <HomeFooter />
   </div>
 </template>
@@ -40,12 +43,12 @@
 <script>
 import HomeHeader from "./components/HomeHeader.vue";
 import GenerateColor from "./components/GenerateScheme.vue";
-import CustomizationView from "./views/CustomizationView.vue";
+import CustomizeView from "./views/CustomizeView.vue";
 import InvertColors from "./components/InvertColors.vue";
 import ExportModal from "./components/ExportModal.vue";
 import AdvancedConfig from "./components/AdvancedConfig.vue";
 import HomeFooter from "./components/HomeFooter.vue";
-import UserSchemesView from "./views/UserSchemesView.vue";
+import UserSchemes from "./views/UserSchemes.vue";
 import {
   getSavedSchemes,
   createScheme,
@@ -59,12 +62,12 @@ export default {
   components: {
     HomeHeader,
     GenerateColor,
-    CustomizationView,
+    CustomizeView,
     InvertColors,
     ExportModal,
     AdvancedConfig,
     HomeFooter,
-    UserSchemesView,
+    UserSchemes,
   },
   data: () => ({
     textPrimary: localStorage.getItem("text-primary"),
@@ -184,6 +187,6 @@ export default {
 };
 </script>
 
-<style>
-@import "@/assets/styles/main.css";
+<style lang="scss">
+@import "@/assets/styles/main.scss";
 </style>

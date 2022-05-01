@@ -21,6 +21,6 @@ export default {
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/generateScheme.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/generateScheme.scss";
 </style>

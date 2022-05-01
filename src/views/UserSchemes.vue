@@ -34,6 +34,6 @@ export default {
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/userSchemesView.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/userSchemes.scss";
 </style>

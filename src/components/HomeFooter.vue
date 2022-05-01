@@ -2,6 +2,6 @@
   <footer></footer>
 </template>
 
-<style scoped>
-@import "@/assets/styles/footer.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/footer.scss";
 </style>

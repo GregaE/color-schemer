@@ -37,6 +37,6 @@ export default {
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/schemeList.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/schemeList.scss";
 </style>

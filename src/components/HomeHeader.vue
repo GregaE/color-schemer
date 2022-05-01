@@ -28,9 +28,9 @@ export default {
         height="125"
       />
       <nav>
-        <a href="#home-anchor">Home</a>
-        <a href="#customize-anchor">Customize</a>
-        <a href="#adv-config-anchor">Advanced</a>
+        <router-link to="/">Home</router-link>
+        <router-link to="/customize">Customize</router-link>
+        <router-link to="/saved">Saved Schemes</router-link>
       </nav>
     </div>
     <div>
@@ -49,6 +49,6 @@ export default {
   </header>
 </template>
 
-<style scoped>
-@import "@/assets/styles/header.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/header.scss";
 </style>

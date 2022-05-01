@@ -99,6 +99,6 @@ $tertiary: ${style5}`;
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/exportModal.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/exportModal.scss";
 </style>

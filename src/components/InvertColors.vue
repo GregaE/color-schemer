@@ -37,6 +37,6 @@ export default {
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/invertColors.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/invertColors.scss";
 </style>

@@ -127,6 +127,6 @@ export default {
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/advancedConfig.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/advancedConfig.scss";
 </style>

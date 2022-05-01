@@ -24,11 +24,11 @@ nav {
   display: flex;
   gap: 3rem;
   font-size: 1.6rem;
-}
 
-nav a {
-  text-decoration: none;
-  color: var(--text-secondary);
+  a {
+    text-decoration: none;
+    color: var(--text-secondary);
+  }
 }
 
 i {
@@ -36,10 +36,10 @@ i {
   color: var(--text-primary);
   cursor: pointer;
   transition: color 0.1s;
-}
 
-i:hover, i:active, i:focus, .active  {
-  color: var(--tertiary);
+  &:hover, &:active, &:focus, &.active  {
+    color: var(--tertiary);
+  }
 }
 
 button {
@@ -47,10 +47,10 @@ button {
   color: var(--text-primary);
   border-color: var(--text-primary);
   margin: 2rem;
-}
 
-button:hover {
-  background-color: var(--text-primary);
-  color: var(--bg-secondary);
-  border-color: var(--bg-secondary);
+  &:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-secondary);
+    border-color: var(--bg-secondary);
+  }
 }

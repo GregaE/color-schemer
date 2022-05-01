@@ -33,7 +33,7 @@ export default {
 </script>
 
 <template>
-  <form class="customize-form" id="customize-anchor">
+  <form class="CustomizeView-form" id="CustomizeView-anchor">
     <h1>Customize</h1>
     <div>
       <div class="color-picker">
@@ -100,6 +100,6 @@ export default {
   </form>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/customizeForm.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/customizeForm.scss";
 </style>
