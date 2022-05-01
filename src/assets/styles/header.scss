@@ -27,6 +27,14 @@ nav {
 
   a {
     text-decoration: none;
+    color: var(--text-primary);
+
+    &:hover {
+      color: var(--text-secondary);
+    }
+  }
+
+  .router-link-active {
     color: var(--text-secondary);
   }
 }

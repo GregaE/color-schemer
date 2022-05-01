@@ -17,7 +17,12 @@ export default {
 <template>
   <div class="generate-scheme" id="home-anchor">
     <h1>Color Schemer</h1>
+    <p>Find, manage and visualize your favourite color schemes</p>
     <button @click="getScheme">Generate Random Scheme</button>
+    <div class="sphere-container">
+      <div class="sphere" />
+      <div class="sphere-overlay" />
+    </div>
   </div>
 </template>
 
