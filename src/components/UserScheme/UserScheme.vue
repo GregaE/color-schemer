@@ -1,4 +1,6 @@
 <script>
+import { mapActions } from "vuex";
+
 export default {
   props: ["scheme"],
   emits: ["apply", "rename", "remove"],
@@ -18,6 +20,7 @@ export default {
       }
       this.isOpen = !this.isOpen;
     },
+    ...mapActions(["deleteUserScheme"]),
   },
 };
 </script>
@@ -33,7 +36,16 @@ export default {
     />
     <button @click="$emit('apply', scheme.colors)">Apply</button>
     <button @click="emitRename($event)">Rename</button>
-    <button @click="$emit('remove', scheme._id)">Delete</button>
+    <button
+      @click="
+        deleteUserScheme({
+          schemeId: scheme._id,
+          user_id: '6245d8c249e428cdbaa8d920',
+        })
+      "
+    >
+      Delete
+    </button>
   </div>
 </template>
 

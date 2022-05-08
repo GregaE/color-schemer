@@ -1,4 +1,9 @@
-import { getSavedSchemes } from "../../services/colorApiService";
+import {
+  getSavedSchemes,
+  createScheme,
+  deleteScheme,
+  renameScheme,
+} from "../../services/colorApiService";
 
 const state = () => ({
   userSchemeList: [],
@@ -13,10 +18,23 @@ const actions = {
     const response = await getSavedSchemes(userId);
     commit("setUserSchemes", response);
   },
+  async addUserScheme({ commit }, schemeName, colorArr, user_id) {
+    const response = await createScheme(schemeName, colorArr, user_id);
+    commit("setNewScheme", response);
+  },
+  async deleteUserScheme({ commit }, { schemeId, user_id }) {
+    deleteScheme(schemeId, user_id);
+    commit("deleteScheme", schemeId);
+  },
 };
 
 const mutations = {
   setUserSchemes: (state, schemeList) => (state.userSchemeList = schemeList),
+  setNewScheme: (state, scheme) => state.userSchemeList.push(scheme),
+  deleteScheme: (state, schemeId) =>
+    (state.userSchemeList = state.userSchemeList.filter(
+      (scheme) => scheme._id !== schemeId
+    )),
 };
 
 export default {

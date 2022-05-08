@@ -32,7 +32,6 @@
         @remove="remove"
         @apply="changeScheme"
         @rename="rename"
-        :schemeList="userSchemeList"
       /> -->
       <router-view />
     </main>
@@ -76,7 +75,6 @@ export default {
     bgSecondary: localStorage.getItem("bg-secondary"),
     tertiary: localStorage.getItem("tertiary"),
     exportModalIsActive: false,
-    userSchemeList: [],
   }),
   methods: {
     changeColor(color, field) {
@@ -178,11 +176,6 @@ export default {
         localStorage.getItem("tertiary")
       );
     }
-  },
-  mounted() {
-    getSavedSchemes("6245d8c249e428cdbaa8d920").then(
-      (data) => (this.userSchemeList = data)
-    );
   },
 };
 </script>
