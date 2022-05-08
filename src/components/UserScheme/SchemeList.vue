@@ -35,7 +35,7 @@ export default {
 
 <template>
   <div>
-    <h1>My Schemes</h1>
+    <h1>My Schemes {{ userSchemeList }}</h1>
     <UserScheme
       v-for="scheme in userSchemeList"
       :key="scheme.id"

@@ -8,19 +8,19 @@ export default {
     isOpen: false,
   }),
   methods: {
-    emitRename(e) {
+    handleRename(e) {
       if (e instanceof KeyboardEvent && e.code !== "Enter") return;
       if (this.isOpen) {
         if (this.scheme.name !== document.getElementById("rename-input").value)
-          this.$emit(
-            "rename",
-            this.scheme._id,
-            document.getElementById("rename-input").value
-          );
+          this.renameUserScheme({
+            schemeId: this.scheme._id,
+            user_id: "6245d8c249e428cdbaa8d920",
+            newName: document.getElementById("rename-input").value,
+          });
       }
       this.isOpen = !this.isOpen;
     },
-    ...mapActions(["deleteUserScheme"]),
+    ...mapActions(["deleteUserScheme", "renameUserScheme"]),
   },
 };
 </script>
@@ -31,11 +31,11 @@ export default {
     <input
       v-else
       :value="`${scheme.name}`"
-      @keydown="emitRename($event)"
+      @keydown="handleRename($event)"
       id="rename-input"
     />
     <button @click="$emit('apply', scheme.colors)">Apply</button>
-    <button @click="emitRename($event)">Rename</button>
+    <button @click="handleRename($event)">Rename</button>
     <button
       @click="
         deleteUserScheme({

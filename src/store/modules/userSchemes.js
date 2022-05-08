@@ -26,6 +26,10 @@ const actions = {
     deleteScheme(schemeId, user_id);
     commit("deleteScheme", schemeId);
   },
+  async renameUserScheme({ commit }, { schemeId, user_id, newName }) {
+    renameScheme(schemeId, user_id, newName);
+    commit("renameScheme", { schemeId: schemeId, newName: newName });
+  },
 };
 
 const mutations = {
@@ -35,6 +39,14 @@ const mutations = {
     (state.userSchemeList = state.userSchemeList.filter(
       (scheme) => scheme._id !== schemeId
     )),
+  renameScheme: (state, { schemeId, newName }) =>
+    (state.userSchemeList = state.userSchemeList.map((scheme) => {
+      if (scheme._id === schemeId) {
+        console.log(newName);
+        return Object.assign({}, scheme, { name: newName });
+      }
+      return scheme;
+    })),
 };
 
 export default {
