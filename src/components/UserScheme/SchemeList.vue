@@ -1,4 +1,5 @@
 <script>
+import { mapState, mapActions } from "vuex";
 import UserScheme from "./UserScheme.vue";
 
 export default {
@@ -7,6 +8,11 @@ export default {
   },
   props: {
     schemeList: Array,
+  },
+  computed: {
+    ...mapState({
+      userSchemeList: (state) => state.userSchemes.userSchemeList,
+    }),
   },
   emits: ["apply", "rename", "remove"],
   methods: {
@@ -19,6 +25,10 @@ export default {
     emitRename(id, newName) {
       this.$emit("rename", id, newName);
     },
+    ...mapActions(["fetchUserSchemes"]),
+  },
+  created() {
+    this.fetchUserSchemes("6245d8c249e428cdbaa8d920");
   },
 };
 </script>
@@ -27,7 +37,7 @@ export default {
   <div>
     <h1>My Schemes</h1>
     <UserScheme
-      v-for="scheme in schemeList"
+      v-for="scheme in userSchemeList"
       :key="scheme.id"
       :scheme="scheme"
       @remove="emitRemove"
