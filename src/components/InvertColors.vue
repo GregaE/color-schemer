@@ -1,8 +1,20 @@
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
+  computed: {
+    ...mapState({
+      textPrimary: (state) => state.colors.textPrimary,
+      textSecondary: (state) => state.colors.textSecondary,
+      bgPrimary: (state) => state.colors.bgPrimary,
+      bgSecondary: (state) => state.colors.bgSecondary,
+      tertiary: (state) => state.colors.tertiary,
+    }),
+  },
   methods: {
+    ...mapActions(["setScheme"]),
     invertText() {
-      this.$emit("change-scheme", [
+      this.setScheme([
         this.textSecondary,
         this.textPrimary,
         this.bgPrimary,
@@ -11,7 +23,7 @@ export default {
       ]);
     },
     invertBg() {
-      this.$emit("change-scheme", [
+      this.setScheme([
         this.textPrimary,
         this.textSecondary,
         this.bgSecondary,
@@ -19,13 +31,6 @@ export default {
         this.tertiary,
       ]);
     },
-  },
-  props: {
-    textPrimary: String,
-    textSecondary: String,
-    bgPrimary: String,
-    bgSecondary: String,
-    tertiary: String,
   },
 };
 </script>

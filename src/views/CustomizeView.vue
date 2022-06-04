@@ -1,37 +1,23 @@
 /* eslint-disable vue/multi-word-component-names */
 <script>
 import CustomizeForm from "@/components/CustomizeForm.vue";
+import InvertColors from "@/components/InvertColors.vue";
+import AdvancedConfig from "@/components/AdvancedConfig.vue";
 
 export default {
   components: {
     CustomizeForm,
-  },
-  methods: {
-    emitColor(color, field) {
-      this.$emit("change-color", color, field);
-    },
-  },
-  emits: ["change-color"],
-  props: {
-    textPrimary: String,
-    textSecondary: String,
-    bgPrimary: String,
-    bgSecondary: String,
-    tertiary: String,
+    InvertColors,
+    AdvancedConfig,
   },
 };
 </script>
 
 <template>
   <div class="customization-view">
-    <CustomizeForm
-      @change-color="emitColor"
-      v-bind:textPrimary="textPrimary"
-      v-bind:textSecondary="textSecondary"
-      v-bind:bgPrimary="bgPrimary"
-      v-bind:bgSecondary="bgSecondary"
-      v-bind:tertiary="tertiary"
-    />
+    <CustomizeForm />
+    <InvertColors />
+    <AdvancedConfig />
   </div>
 </template>
 
