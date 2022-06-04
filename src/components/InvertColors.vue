@@ -37,7 +37,7 @@ export default {
 
 <template>
   <div class="invert-colors">
-    <button @click="invertText">Invert Text {{ textPrimary }}</button>
+    <button @click="invertText">Invert Text</button>
     <button @click="invertBg">Invert Background</button>
   </div>
 </template>

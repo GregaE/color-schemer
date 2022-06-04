@@ -1,8 +1,10 @@
 <script>
+import { mapActions } from "vuex";
 import { getColorSchemes } from "@/services/colorApiService.js";
 
 export default {
   methods: {
+    ...mapActions(["setScheme"]),
     async getScheme() {
       if (!this.firstColor && !this.secondColor) {
         return;
@@ -34,7 +36,7 @@ export default {
         const currScheme = this.colorArr[this.counter].colors.map(
           (color) => "#" + color
         );
-        this.$emit("change-scheme", currScheme);
+        this.setScheme(currScheme);
         this.counter++;
       }
     },

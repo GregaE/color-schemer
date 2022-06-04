@@ -3,6 +3,7 @@ const BASE_URL = import.meta.env.VITE_SERVER_PORT;
 async function getRandomColorScheme() {
   try {
     const scheme = await fetch(`${BASE_URL}/schemes/random`);
+    console.log(scheme);
     return scheme.json();
   } catch (error) {
     return error;
