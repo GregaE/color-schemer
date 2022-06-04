@@ -6,24 +6,15 @@ export default {
   components: {
     UserScheme,
   },
-  props: {
-    schemeList: Array,
-  },
   computed: {
     ...mapState({
       userSchemeList: (state) => state.userSchemes.userSchemeList,
     }),
   },
-  emits: ["apply", "rename", "remove"],
+  emits: ["apply"],
   methods: {
-    emitRemove(id) {
-      this.$emit("remove", id);
-    },
     emitApply(colors) {
       this.$emit("apply", colors);
-    },
-    emitRename(id, newName) {
-      this.$emit("rename", id, newName);
     },
     ...mapActions(["fetchUserSchemes"]),
   },
@@ -35,15 +26,14 @@ export default {
 
 <template>
   <div>
-    <h1>My Schemes {{ userSchemeList }}</h1>
+    <h1>My Schemes</h1>
     <UserScheme
       v-for="scheme in userSchemeList"
       :key="scheme.id"
       :scheme="scheme"
-      @remove="emitRemove"
       @apply="emitApply"
-      @rename="emitRename"
     />
+    >
   </div>
 </template>
 

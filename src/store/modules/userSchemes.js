@@ -18,9 +18,9 @@ const actions = {
     const response = await getSavedSchemes(userId);
     commit("setUserSchemes", response);
   },
-  async addUserScheme({ commit }, schemeName, colorArr, user_id) {
+  async addUserScheme({ commit }, { schemeName, colorArr, user_id }) {
     const response = await createScheme(schemeName, colorArr, user_id);
-    commit("setNewScheme", response);
+    commit("setUserSchemes", response.colorSchemes);
   },
   async deleteUserScheme({ commit }, { schemeId, user_id }) {
     deleteScheme(schemeId, user_id);
@@ -34,7 +34,6 @@ const actions = {
 
 const mutations = {
   setUserSchemes: (state, schemeList) => (state.userSchemeList = schemeList),
-  setNewScheme: (state, scheme) => state.userSchemeList.push(scheme),
   deleteScheme: (state, schemeId) =>
     (state.userSchemeList = state.userSchemeList.filter(
       (scheme) => scheme._id !== schemeId

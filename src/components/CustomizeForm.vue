@@ -1,39 +1,27 @@
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
   methods: {
     onChange(event, field) {
-      this.$emit("change-color", event.target.value, field);
+      this.setColor({ color: event.target.value, field: field });
     },
+    ...mapActions(["setColor"]),
   },
-  props: {
-    textPrimary: String,
-    textSecondary: String,
-    bgPrimary: String,
-    bgSecondary: String,
-    tertiary: String,
-  },
-  watch: {
-    textPrimary(newVal) {
-      localStorage.setItem("text-primary", newVal);
-    },
-    textSecondary(newVal) {
-      localStorage.setItem("text-secondary", newVal);
-    },
-    bgPrimary(newVal) {
-      localStorage.setItem("bg-primary", newVal);
-    },
-    bgSecondary(newVal) {
-      localStorage.setItem("bg-secondary", newVal);
-    },
-    tertiary(newVal) {
-      localStorage.setItem("tertiary", newVal);
-    },
+  computed: {
+    ...mapState({
+      textPrimary: (state) => state.colors.textPrimary,
+      textSecondary: (state) => state.colors.textSecondary,
+      bgPrimary: (state) => state.colors.bgPrimary,
+      bgSecondary: (state) => state.colors.bgSecondary,
+      tertiary: (state) => state.colors.tertiary,
+    }),
   },
 };
 </script>
 
 <template>
-  <form class="CustomizeView-form" id="CustomizeView-anchor">
+  <form class="CustomizeView-form">
     <h1>Customize</h1>
     <div>
       <div class="color-picker">

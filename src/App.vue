@@ -2,8 +2,7 @@
   <div>
     <HomeHeader @toggle-export-modal="toggleExportModal" @create="create" />
     <main>
-      <!-- <GenerateColor @change-scheme="changeScheme" />
-      <CustomizeView
+      <!-- <CustomizeView
         @change-color="changeColor"
         :textPrimary="textPrimary"
         :textSecondary="textSecondary"
@@ -49,7 +48,6 @@ import AdvancedConfig from "./components/AdvancedConfig.vue";
 import HomeFooter from "./components/HomeFooter.vue";
 import UserSchemes from "./views/UserSchemes.vue";
 import {
-  getSavedSchemes,
   createScheme,
   deleteScheme,
   renameScheme,
@@ -60,44 +58,15 @@ const rootScheme = document.querySelector(":root");
 export default {
   components: {
     HomeHeader,
-    GenerateColor,
-    CustomizeView,
     InvertColors,
     ExportModal,
     AdvancedConfig,
     HomeFooter,
-    UserSchemes,
   },
   data: () => ({
-    textPrimary: localStorage.getItem("text-primary"),
-    textSecondary: localStorage.getItem("text-secondary"),
-    bgPrimary: localStorage.getItem("bg-primary"),
-    bgSecondary: localStorage.getItem("bg-secondary"),
-    tertiary: localStorage.getItem("tertiary"),
     exportModalIsActive: false,
   }),
   methods: {
-    changeColor(color, field) {
-      if (field === "--text-primary") {
-        this.textPrimary = color;
-      } else if (field === "--text-secondary") {
-        this.textSecondary = color;
-      } else if (field === "--bg-primary") {
-        this.bgPrimary = color;
-      } else if (field === "--bg-secondary") {
-        this.bgSecondary = color;
-      } else if (field === "--tertiary") {
-        this.tertiary = color;
-      }
-      rootScheme.style.setProperty(field, color);
-    },
-    changeScheme(colorArr) {
-      this.changeColor(colorArr[0], "--text-primary");
-      this.changeColor(colorArr[1], "--text-secondary");
-      this.changeColor(colorArr[2], "--bg-primary");
-      this.changeColor(colorArr[3], "--bg-secondary");
-      this.changeColor(colorArr[4], "--tertiary");
-    },
     toggleExportModal() {
       this.exportModalIsActive = !this.exportModalIsActive;
     },
@@ -142,9 +111,6 @@ export default {
         }
         return scheme;
       });
-    },
-    emitApply(colors) {
-      this.$emit("apply", colors);
     },
   },
   beforeCreate() {

@@ -3,7 +3,6 @@ import { mapActions } from "vuex";
 
 export default {
   props: ["scheme"],
-  emits: ["apply", "rename", "remove"],
   data: () => ({
     isOpen: false,
   }),
@@ -20,7 +19,7 @@ export default {
       }
       this.isOpen = !this.isOpen;
     },
-    ...mapActions(["deleteUserScheme", "renameUserScheme"]),
+    ...mapActions(["deleteUserScheme", "renameUserScheme", "setScheme"]),
   },
 };
 </script>
@@ -34,7 +33,8 @@ export default {
       @keydown="handleRename($event)"
       id="rename-input"
     />
-    <button @click="$emit('apply', scheme.colors)">Apply</button>
+    {{ scheme.colors }}
+    <button @click="setScheme(scheme.colors)">Apply</button>
     <button @click="handleRename($event)">Rename</button>
     <button
       @click="
