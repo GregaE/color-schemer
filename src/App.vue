@@ -1,17 +1,8 @@
 <template>
   <div>
-    <HomeHeader @toggle-export-modal="toggleExportModal" @create="create" />
+    <HomeHeader @toggle-export-modal="toggleExportModal" />
     <main>
-      <!--
-      <ExportModal
-        v-if="exportModalIsActive"
-        :textPrimary="textPrimary"
-        :textSecondary="textSecondary"
-        :bgPrimary="bgPrimary"
-        :bgSecondary="bgSecondary"
-        :tertiary="tertiary"
-      />
-      -->
+      <ExportModal v-if="exportModalIsActive" />
       <router-view />
     </main>
     <HomeFooter />
@@ -21,17 +12,14 @@
 <script>
 import HomeHeader from "./components/HomeHeader.vue";
 import HomeFooter from "./components/HomeFooter.vue";
-import {
-  createScheme,
-  deleteScheme,
-  renameScheme,
-} from "./services/colorApiService.js";
+import ExportModal from "./components/ExportModal.vue";
 
 const rootScheme = document.querySelector(":root");
 
 export default {
   components: {
     HomeHeader,
+    ExportModal,
     HomeFooter,
   },
   data: () => ({

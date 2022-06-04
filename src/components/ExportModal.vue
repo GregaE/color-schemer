@@ -1,5 +1,16 @@
 <script>
+import { mapState } from "vuex";
+
 export default {
+  computed: {
+    ...mapState({
+      textPrimary: (state) => state.colors.textPrimary,
+      textSecondary: (state) => state.colors.textSecondary,
+      bgPrimary: (state) => state.colors.bgPrimary,
+      bgSecondary: (state) => state.colors.bgSecondary,
+      tertiary: (state) => state.colors.tertiary,
+    }),
+  },
   methods: {
     copyStyles() {
       const styleCSS = this.getStyling(
@@ -45,13 +56,6 @@ $bg-secondary: ${style4}
 $tertiary: ${style5}`;
       }
     },
-  },
-  props: {
-    textPrimary: String,
-    textSecondary: String,
-    bgPrimary: String,
-    bgSecondary: String,
-    tertiary: String,
   },
   data() {
     return {
