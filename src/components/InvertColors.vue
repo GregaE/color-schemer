@@ -1,7 +1,11 @@
 <script>
 import { mapState, mapActions } from "vuex";
+import Button from "@/components/ui/Button/Button.vue";
 
 export default {
+  components: {
+    Button,
+  },
   computed: {
     ...mapState({
       textPrimary: (state) => state.colors.textPrimary,
@@ -37,8 +41,8 @@ export default {
 
 <template>
   <div class="invert-colors">
-    <button @click="invertText">Invert Text</button>
-    <button @click="invertBg">Invert Background</button>
+    <Button @click="invertText" variant="secondary">Invert Text</Button>
+    <Button @click="invertBg" variant="secondary">Invert Background</Button>
   </div>
 </template>
 

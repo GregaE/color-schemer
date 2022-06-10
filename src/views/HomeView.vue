@@ -10,9 +10,9 @@ export default {
 </script>
 
 <template>
-  <GenerateScheme />
+  <main>
+    <GenerateScheme />
+  </main>
 </template>
 
-<style lang="scss" scoped>
-@import "@/assets/styles/userSchemes.scss";
-</style>
+<style lang="scss" scoped></style>

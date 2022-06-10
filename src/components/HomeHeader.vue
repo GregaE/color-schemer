@@ -1,8 +1,10 @@
 <script>
+import Button from "@/components/ui/Button/Button.vue";
 import SaveModal from "./SaveModal.vue";
 
 export default {
   components: {
+    Button,
     SaveModal,
   },
   data: () => ({
@@ -15,13 +17,6 @@ export default {
 <template>
   <header>
     <div>
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="@/assets/logo.svg"
-        width="125"
-        height="125"
-      />
       <nav>
         <router-link to="/">Home</router-link>
         <router-link to="/customize">Customize</router-link>
@@ -34,11 +29,13 @@ export default {
         :class="{ active: isActive }"
         @click="isActive = !isActive"
       />
-      <button @click="$emit('toggle-export-modal')">Export Scheme</button>
+      <Button @click="$emit('toggle-export-modal')" variant="secondary"
+        >Export Scheme</Button
+      >
     </div>
-    <Teleport to="body">
-      <SaveModal v-if="isActive" />
-    </Teleport>
+    <!-- <Teleport to="body"> -->
+    <SaveModal v-if="isActive" />
+    <!-- </Teleport> -->
   </header>
 </template>
 

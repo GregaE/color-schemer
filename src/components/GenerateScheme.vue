@@ -1,8 +1,12 @@
 <script>
 import { mapActions } from "vuex";
 import { getRandomColorScheme } from "@/services/colorApiService.js";
+import Button from "@/components/ui/Button/Button.vue";
 
 export default {
+  components: {
+    Button,
+  },
   methods: {
     ...mapActions(["setScheme"]),
     getScheme() {
@@ -20,7 +24,9 @@ export default {
   <div class="generate-scheme" id="home-anchor">
     <h1>Color Schemer</h1>
     <p>Find, manage and visualize your favourite color schemes</p>
-    <button @click="getScheme()">Generate Random Scheme</button>
+    <Button @click="getScheme()" variant="tertiary">
+      Generate Random Scheme
+    </Button>
     <div class="sphere-container">
       <div class="sphere" />
       <div class="sphere-overlay" />

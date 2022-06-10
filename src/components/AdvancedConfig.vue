@@ -1,8 +1,12 @@
 <script>
 import { mapActions } from "vuex";
 import { getColorSchemes } from "@/services/colorApiService.js";
+import Button from "@/components/ui/Button/Button.vue";
 
 export default {
+  components: {
+    Button,
+  },
   methods: {
     ...mapActions(["setScheme"]),
     async getScheme() {
@@ -124,8 +128,9 @@ export default {
     <div>
       {{ this.displayResults() }}
     </div>
-    <button v-if="!isSelected" @click="getScheme">Find Schemes</button>
-    <button v-if="isSelected" @click="getScheme">Next Scheme</button>
+    <Button @click="getScheme" variant="secondary">
+      {{ isSelected ? "Next Scheme" : "Find Schemes" }}
+    </Button>
   </div>
 </template>
 

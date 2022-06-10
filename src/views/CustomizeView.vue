@@ -14,11 +14,11 @@ export default {
 </script>
 
 <template>
-  <div class="customization-view">
+  <main class="customization-view">
     <CustomizeForm />
     <InvertColors />
     <AdvancedConfig />
-  </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>

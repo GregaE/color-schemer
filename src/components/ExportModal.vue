@@ -1,7 +1,11 @@
 <script>
 import { mapState } from "vuex";
+import Button from "@/components/ui/Button/Button.vue";
 
 export default {
+  components: {
+    Button,
+  },
   computed: {
     ...mapState({
       textPrimary: (state) => state.colors.textPrimary,
@@ -99,7 +103,7 @@ $tertiary: ${style5}`;
         )
       }}
     </pre>
-    <button v-on:click="copyStyles">Copy to clipboard</button>
+    <Button v-on:click="copyStyles" variant="primary">Copy to clipboard</Button>
   </div>
 </template>
 

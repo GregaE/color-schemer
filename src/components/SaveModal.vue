@@ -1,7 +1,11 @@
 <script>
 import { mapActions, mapState } from "vuex";
+import Button from "@/components/ui/Button/Button.vue";
 
 export default {
+  components: {
+    Button,
+  },
   data: () => ({
     nameInput: "",
   }),
@@ -40,7 +44,7 @@ export default {
   <form @submit="saveScheme">
     <label for="scheme-name">Scheme Name</label>
     <input id="scheme-name" v-model="nameInput" />
-    <button type="submit">Save Scheme</button>
+    <Button type="submit" variant="primary">Save Scheme</Button>
   </form>
 </template>
 

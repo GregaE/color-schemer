@@ -30,38 +30,6 @@ body {
   font-size: 1.4rem;
 }
 
-button {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 600;
-  border-radius: var(--border-radius);
-  display: inline-block;
-  padding: 14px 25px;
-  margin: 0;
-  text-decoration: none;
-  font-family: inherit;
-  line-height: 1.4rem;
-  cursor: pointer;
-  text-align: center;
-  background: var(--bg-primary);
-  color: var(--bg-secondary);
-  border: 1px solid var(--bg-secondary);
-  letter-spacing: 2px;
-  transition: all 0.4s ease;
-
-  &:hover {
-    background: var(--bg-secondary);
-    color: var(--bg-primary);
-  }
-
-  &:active {
-    background: var(--bg-secondary);
-    color: var(--bg-primary);
-    transform: scale(0.95);
-  }
-}
-
 input[type=text] {
   background: var(--bg-secondary);
   color: var(--text-secondary);
@@ -95,6 +63,6 @@ input[type=text] {
 }
 
 main {
-  padding: 12rem 2.5rem;
+  padding: 7rem 2.5rem;
   height: 100vh;
 }
