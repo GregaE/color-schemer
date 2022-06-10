@@ -1,8 +1,24 @@
 <script>
+import { mapState, mapActions } from "vuex";
+import Button from "@/components/ui/Button/Button.vue";
+
 export default {
+  components: {
+    Button,
+  },
+  computed: {
+    ...mapState({
+      textPrimary: (state) => state.colors.textPrimary,
+      textSecondary: (state) => state.colors.textSecondary,
+      bgPrimary: (state) => state.colors.bgPrimary,
+      bgSecondary: (state) => state.colors.bgSecondary,
+      tertiary: (state) => state.colors.tertiary,
+    }),
+  },
   methods: {
+    ...mapActions(["setScheme"]),
     invertText() {
-      this.$emit("change-scheme", [
+      this.setScheme([
         this.textSecondary,
         this.textPrimary,
         this.bgPrimary,
@@ -11,7 +27,7 @@ export default {
       ]);
     },
     invertBg() {
-      this.$emit("change-scheme", [
+      this.setScheme([
         this.textPrimary,
         this.textSecondary,
         this.bgSecondary,
@@ -20,23 +36,16 @@ export default {
       ]);
     },
   },
-  props: {
-    textPrimary: String,
-    textSecondary: String,
-    bgPrimary: String,
-    bgSecondary: String,
-    tertiary: String,
-  },
 };
 </script>
 
 <template>
   <div class="invert-colors">
-    <button @click="invertText">Invert Text</button>
-    <button @click="invertBg">Invert Background</button>
+    <Button @click="invertText" variant="secondary">Invert Text</Button>
+    <Button @click="invertBg" variant="secondary">Invert Background</Button>
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/invertColors.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/invertColors.scss";
 </style>

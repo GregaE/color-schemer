@@ -1,8 +1,14 @@
 <script>
+import { mapActions } from "vuex";
 import { getColorSchemes } from "@/services/colorApiService.js";
+import Button from "@/components/ui/Button/Button.vue";
 
 export default {
+  components: {
+    Button,
+  },
   methods: {
+    ...mapActions(["setScheme"]),
     async getScheme() {
       if (!this.firstColor && !this.secondColor) {
         return;
@@ -34,7 +40,7 @@ export default {
         const currScheme = this.colorArr[this.counter].colors.map(
           (color) => "#" + color
         );
-        this.$emit("change-scheme", currScheme);
+        this.setScheme(currScheme);
         this.counter++;
       }
     },
@@ -122,11 +128,12 @@ export default {
     <div>
       {{ this.displayResults() }}
     </div>
-    <button v-if="!isSelected" @click="getScheme">Find Schemes</button>
-    <button v-if="isSelected" @click="getScheme">Next Scheme</button>
+    <Button @click="getScheme" variant="secondary">
+      {{ isSelected ? "Next Scheme" : "Find Schemes" }}
+    </Button>
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/advancedConfig.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/advancedConfig.scss";
 </style>

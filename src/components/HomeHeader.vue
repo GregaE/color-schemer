@@ -1,31 +1,44 @@
 <script>
+import Button from "@/components/ui/Button/Button.vue";
+import SaveModal from "./SaveModal.vue";
+
 export default {
-  methods: {},
+  components: {
+    Button,
+    SaveModal,
+  },
+  data: () => ({
+    isActive: false,
+  }),
+  emits: ["toggle-export-modal"],
 };
 </script>
 
 <template>
   <header>
     <div>
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="@/assets/logo.svg"
-        width="125"
-        height="125"
-      />
       <nav>
-        <a href="#home-anchor">Home</a>
-        <a href="#customize-anchor">Customize</a>
-        <a href="#adv-config-anchor">Advanced</a>
+        <router-link to="/">Home</router-link>
+        <router-link to="/customize">Customize</router-link>
+        <router-link to="/saved">Saved Schemes</router-link>
       </nav>
     </div>
     <div>
-      <button v-on:click="$emit('toggle-export-modal')">Export Scheme</button>
+      <i
+        class="fa fa-heart"
+        :class="{ active: isActive }"
+        @click="isActive = !isActive"
+      />
+      <Button @click="$emit('toggle-export-modal')" variant="secondary"
+        >Export Scheme</Button
+      >
     </div>
+    <!-- <Teleport to="body"> -->
+    <SaveModal v-if="isActive" />
+    <!-- </Teleport> -->
   </header>
 </template>
 
-<style scoped>
-@import "@/assets/styles/header.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/header.scss";
 </style>

@@ -1,5 +1,20 @@
 <script>
+import { mapState } from "vuex";
+import Button from "@/components/ui/Button/Button.vue";
+
 export default {
+  components: {
+    Button,
+  },
+  computed: {
+    ...mapState({
+      textPrimary: (state) => state.colors.textPrimary,
+      textSecondary: (state) => state.colors.textSecondary,
+      bgPrimary: (state) => state.colors.bgPrimary,
+      bgSecondary: (state) => state.colors.bgSecondary,
+      tertiary: (state) => state.colors.tertiary,
+    }),
+  },
   methods: {
     copyStyles() {
       const styleCSS = this.getStyling(
@@ -35,7 +50,8 @@ export default {
         return `$text-primary: ${style1};
 $text-secondary: ${style2};
 $bg-primary: ${style3};
-$bg-secondary: ${style4};`;
+$bg-secondary: ${style4};
+$tertiary: ${style5};`;
       } else {
         return `$text-primary: ${style1}
 $text-secondary: ${style2}
@@ -44,13 +60,6 @@ $bg-secondary: ${style4}
 $tertiary: ${style5}`;
       }
     },
-  },
-  props: {
-    textPrimary: String,
-    textSecondary: String,
-    bgPrimary: String,
-    bgSecondary: String,
-    tertiary: String,
   },
   data() {
     return {
@@ -94,10 +103,10 @@ $tertiary: ${style5}`;
         )
       }}
     </pre>
-    <button v-on:click="copyStyles">Copy to clipboard</button>
+    <Button v-on:click="copyStyles" variant="primary">Copy to clipboard</Button>
   </div>
 </template>
 
-<style scoped>
-@import "@/assets/styles/components/exportModal.css";
+<style lang="scss" scoped>
+@import "@/assets/styles/components/exportModal.scss";
 </style>
