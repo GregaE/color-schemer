@@ -15,10 +15,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-size: 1.4rem;
-}
-
 html,
 body,
 #root,
@@ -31,38 +27,7 @@ body {
   color: var(--text-primary);
   transition: color 0.4s;
   transition: background-color 0.4s;
-}
-
-button {
-  letter-spacing: 2px;
-  text-transform: uppercase;
   font-size: 1.4rem;
-  font-weight: 600;
-  border-radius: var(--border-radius);
-  display: inline-block;
-  padding: 14px 25px;
-  margin: 0;
-  text-decoration: none;
-  font-family: inherit;
-  line-height: 1.4rem;
-  cursor: pointer;
-  text-align: center;
-  background: var(--bg-primary);
-  color: var(--bg-secondary);
-  border: 1px solid var(--bg-secondary);
-  letter-spacing: 2px;
-  transition: all 0.4s ease;
-}
-
-button:hover {
-  background: var(--bg-secondary);
-  color: var(--bg-primary);
-}
-
-button:active {
-  background: var(--bg-secondary);
-  color: var(--bg-primary);
-  transform: scale(0.95);
 }
 
 input[type=text] {
@@ -74,12 +39,12 @@ input[type=text] {
   padding: 0.8rem;
   border: none;
   width: 10rem;
-}
 
-input[type=text]:focus {
-  outline: none;
-  -webkit-box-shadow: 0 0 5px var(--text-secondary);
-  box-shadow: 0 0 5px var(--text-secondary);
+  &:focus {
+    outline: none;
+    -webkit-box-shadow: 0 0 5px var(--text-secondary);
+    box-shadow: 0 0 5px var(--text-secondary);
+  }
 }
 
 ::-webkit-scrollbar {
@@ -95,4 +60,9 @@ input[type=text]:focus {
 ::-webkit-scrollbar-thumb {
   background: var(--text-secondary);
   border-radius: var(--border-radius);
+}
+
+main {
+  padding: 7rem 2.5rem;
+  height: 100vh;
 }

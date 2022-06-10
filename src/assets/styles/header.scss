@@ -8,6 +8,9 @@ header {
   justify-content: space-between;
   height: 8rem;
   border-bottom: 0.05rem solid var(--text-primary);
+  padding: 0 2.5rem;
+  box-sizing: border-box;
+
 }
 
 header div {
@@ -24,22 +27,32 @@ nav {
   display: flex;
   gap: 3rem;
   font-size: 1.6rem;
+
+  a {
+    text-decoration: none;
+    color: var(--text-primary);
+
+    &:hover {
+      color: var(--text-secondary);
+    }
+  }
+
+  .router-link-active {
+    color: var(--text-secondary);
+  }
 }
 
-nav a {
-  text-decoration: none;
-  color: var(--text-secondary);
+i {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: color 0.1s;
+
+  &:hover, &:active, &:focus, &.active  {
+    color: var(--tertiary);
+  }
 }
 
 button {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  border-color: var(--text-primary);
   margin: 2rem;
-}
-
-button:hover {
-  background-color: var(--text-primary);
-  color: var(--bg-secondary);
-  border-color: var(--bg-secondary);
 }

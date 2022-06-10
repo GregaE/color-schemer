@@ -1,0 +1,49 @@
+.generate-scheme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+
+  p {
+    font-size: 2rem;
+  }
+
+  .sphere-container {
+    position: absolute;
+    top: 25rem;
+    left: 38%;
+    width: 50rem;
+    height: 50rem;
+    border-radius: 100%;
+    overflow: hidden;
+    z-index: -1;
+    transform: rotate(60deg);
+
+    .sphere {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      background: var(--text-secondary);
+    }
+
+    .sphere-overlay {
+      width: 50rem;
+      height: 90rem;
+      background: linear-gradient(var(--text-secondary), var(--text-primary) 25% 75%, var(--text-secondary) );
+      animation: rotate 4s infinite linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: translateY(-145rem);
+      }
+      to  {
+        transform: translateY(0rem);
+      }
+    }
+  }
+
+  button {
+    margin-top: 23rem;
+  }
+}
