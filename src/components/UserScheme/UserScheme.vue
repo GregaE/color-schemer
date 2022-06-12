@@ -84,13 +84,16 @@ export default {
   }
 
   p {
+    width: 100%;
+    text-align: center;
     span {
       line-height: 3.8rem;
     }
-    input {
+    input[type="text"] {
       background-color: var(--bg-primary);
       color: var(--text-primary);
       font-size: 1.5rem;
+      width: 14rem;
     }
   }
 }
