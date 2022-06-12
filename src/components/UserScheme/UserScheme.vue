@@ -82,5 +82,16 @@ export default {
     align-self: flex-end;
     margin-right: -2rem;
   }
+
+  p {
+    span {
+      line-height: 3.8rem;
+    }
+    input {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 1.5rem;
+    }
+  }
 }
 </style>
