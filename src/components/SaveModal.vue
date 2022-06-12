@@ -11,7 +11,7 @@ export default {
   data: () => ({
     nameInput: "",
   }),
-  emits: ["create", "deactivate"],
+  emits: ["deactivate"],
   computed: {
     ...mapState({
       textPrimary: (state) => state.colors.textPrimary,

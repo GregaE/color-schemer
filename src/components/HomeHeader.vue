@@ -1,16 +1,14 @@
 <script>
 import Button from "@/components/ui/Button/Button.vue";
-import SaveModal from "./SaveModal.vue";
 
 export default {
   components: {
     Button,
-    SaveModal,
   },
   data: () => ({
     isActive: false,
   }),
-  emits: ["toggle-export-modal"],
+  emits: ["toggle-export-modal", "toggle-save-modal"],
 };
 </script>
 
@@ -27,15 +25,12 @@ export default {
       <i
         class="fa fa-heart"
         :class="{ active: isActive }"
-        @click="isActive = !isActive"
+        @click="$emit('toggle-save-modal')"
       />
       <Button @click="$emit('toggle-export-modal')" variant="secondary"
         >Export Scheme</Button
       >
     </div>
-    <Teleport to="body">
-      <SaveModal v-if="isActive" />
-    </Teleport>
   </header>
 </template>
 

@@ -41,7 +41,6 @@ const mutations = {
   renameScheme: (state, { schemeId, newName }) =>
     (state.userSchemeList = state.userSchemeList.map((scheme) => {
       if (scheme._id === schemeId) {
-        console.log(newName);
         return Object.assign({}, scheme, { name: newName });
       }
       return scheme;
