@@ -1,9 +1,11 @@
 <script>
 import { mapState } from "vuex";
+import Modal from "@/components/ui/Modal/Modal.vue";
 import Button from "@/components/ui/Button/Button.vue";
 
 export default {
   components: {
+    Modal,
     Button,
   },
   computed: {
@@ -70,7 +72,7 @@ $tertiary: ${style5}`;
 </script>
 
 <template>
-  <div class="export-modal">
+  <Modal>
     <nav>
       <div
         :class="{ selected: selectedStyle === 'css' }"
@@ -104,9 +106,35 @@ $tertiary: ${style5}`;
       }}
     </pre>
     <Button v-on:click="copyStyles" variant="primary">Copy to clipboard</Button>
-  </div>
+  </Modal>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/components/exportModal.scss";
+nav {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--text-secondary);
+}
+
+nav div {
+  padding: 1.5rem 2rem;
+  margin: -0.17rem;
+  cursor: pointer;
+}
+
+.selected {
+  border-bottom: 2.5px solid var(--text-primary);
+  font-weight: 700;
+}
+
+.code {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin: 0.5rem;
+  width: 90%;
+  min-height: 14rem;
+  line-height: 2rem;
+}
 </style>

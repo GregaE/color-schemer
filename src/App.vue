@@ -1,10 +1,12 @@
 <template>
   <div>
     <HomeHeader @toggle-export-modal="toggleExportModal" />
-    <main>
-      <ExportModal v-if="exportModalIsActive" />
-      <router-view />
-    </main>
+    <ExportModal v-if="exportModalIsActive" />
+    <router-view
+      class="view-container"
+      @click="toggleExportModal"
+      :class="{ blurred: exportModalIsActive }"
+    />
     <HomeFooter />
   </div>
 </template>
@@ -65,4 +67,11 @@ export default {
 
 <style lang="scss">
 @import "@/assets/styles/main.scss";
+
+.view-container {
+  transition: 0.4s;
+  &.blurred {
+    filter: blur(5px);
+  }
+}
 </style>

@@ -1,9 +1,11 @@
 <script>
 import { mapActions, mapState } from "vuex";
+import Modal from "@/components/ui/Modal/Modal.vue";
 import Button from "@/components/ui/Button/Button.vue";
 
 export default {
   components: {
+    Modal,
     Button,
   },
   data: () => ({
@@ -41,13 +43,20 @@ export default {
 </script>
 
 <template>
-  <form @submit="saveScheme">
-    <label for="scheme-name">Scheme Name</label>
-    <input id="scheme-name" v-model="nameInput" />
-    <Button type="submit" variant="primary">Save Scheme</Button>
-  </form>
+  <Modal>
+    <form @submit="saveScheme">
+      <label for="scheme-name">Scheme Name</label>
+      <input id="scheme-name" v-model="nameInput" />
+      <Button type="submit" variant="primary">Save Scheme</Button>
+    </form>
+  </Modal>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/components/saveModal.scss";
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
 </style>

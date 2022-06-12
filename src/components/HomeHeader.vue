@@ -33,9 +33,9 @@ export default {
         >Export Scheme</Button
       >
     </div>
-    <!-- <Teleport to="body"> -->
-    <SaveModal v-if="isActive" />
-    <!-- </Teleport> -->
+    <Teleport to="body">
+      <SaveModal v-if="isActive" />
+    </Teleport>
   </header>
 </template>
 
