@@ -45,9 +45,16 @@ export default {
 <template>
   <Modal>
     <form @submit="saveScheme">
-      <label for="scheme-name">Scheme Name</label>
-      <input type="text" id="scheme-name" v-model="nameInput" />
-      <Button type="submit" variant="primary">Save Scheme</Button>
+      <label for="scheme-name">Save a new scheme</label>
+      <input
+        type="text"
+        id="scheme-name"
+        v-model="nameInput"
+        placeholder="Enter scheme name"
+      />
+      <div>
+        <Button type="submit" variant="primary">Save</Button>
+      </div>
     </form>
   </Modal>
 </template>
@@ -57,11 +64,19 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  align-items: center;
+  gap: 2rem;
+  padding: 3.5rem 1rem 4rem 1rem;
+
+  label {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
 
   input[type="text"] {
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    width: 20rem;
   }
 }
 </style>

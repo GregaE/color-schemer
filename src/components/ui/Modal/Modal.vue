@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  padding: 0rem 0rem 3rem 0rem;
+  // padding: 0rem 0rem 3rem 0rem;
   border-radius: var(--border-radius);
   box-shadow: var(--text-primary) 0px 0px 0.357143rem 0px;
   z-index: 1000;

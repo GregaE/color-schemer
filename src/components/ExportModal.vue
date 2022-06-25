@@ -114,17 +114,16 @@ nav {
   display: flex;
   width: 100%;
   border-bottom: 1px solid var(--text-secondary);
-}
 
-nav div {
-  padding: 1.5rem 2rem;
-  margin: -0.17rem;
-  cursor: pointer;
-}
-
-.selected {
-  border-bottom: 2.5px solid var(--text-primary);
-  font-weight: 700;
+  div {
+    padding: 1.5rem 2rem;
+    margin: -0.17rem;
+    cursor: pointer;
+    &.selected {
+      border-bottom: 2.5px solid var(--text-primary);
+      font-weight: 700;
+    }
+  }
 }
 
 .code {
@@ -136,5 +135,9 @@ nav div {
   width: 90%;
   min-height: 14rem;
   line-height: 2rem;
+}
+
+button {
+  margin-bottom: 3rem;
 }
 </style>
