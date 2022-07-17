@@ -22,7 +22,7 @@ export default {
 
 <template>
   <form class="CustomizeView-form">
-    <h1>Customize</h1>
+    <h1>Color Picker</h1>
     <div>
       <div class="color-picker">
         <label for="textPrimary">Text primary</label>
