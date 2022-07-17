@@ -15,12 +15,21 @@ export default {
 
 <template>
   <main class="customization-view">
+    <AdvancedConfig />
     <CustomizeForm />
     <InvertColors />
-    <AdvancedConfig />
   </main>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/customizeView.scss";
+.customization-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  & > * {
+    margin-bottom: 4rem;
+    flex: 1;
+  }
+}
 </style>

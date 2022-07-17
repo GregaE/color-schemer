@@ -25,18 +25,20 @@ export default {
     ...mapActions(["addUserScheme"]),
     saveScheme() {
       event.preventDefault();
-      this.addUserScheme({
-        schemeName: this.nameInput,
-        colorArr: [
-          this.textPrimary,
-          this.textSecondary,
-          this.bgPrimary,
-          this.bgSecondary,
-          this.tertiary,
-        ],
-        user_id: "6245d8c249e428cdbaa8d920",
-      });
-      this.$emit("deactivate");
+      if (/[^%&<>\[\]{}]/g.test(this.nameInput)) {
+        this.addUserScheme({
+          schemeName: this.nameInput,
+          colorArr: [
+            this.textPrimary,
+            this.textSecondary,
+            this.bgPrimary,
+            this.bgSecondary,
+            this.tertiary,
+          ],
+          user_id: "6245d8c249e428cdbaa8d920",
+        });
+        this.$emit("deactivate");
+      }
     },
   },
 };
@@ -65,11 +67,11 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
   padding: 3.5rem 1rem 4rem 1rem;
 
   label {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     font-weight: 600;
   }
 

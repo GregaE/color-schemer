@@ -47,5 +47,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/components/invertColors.scss";
+.invert-colors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  padding: 4rem;
+}
 </style>
