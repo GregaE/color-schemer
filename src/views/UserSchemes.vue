@@ -24,16 +24,15 @@ export default {
 </script>
 
 <template>
-  <div>
+  <main>
+    <h1>My Schemes</h1>
     <SchemeList
       :schemeList="schemeList"
       @remove="emitRemove"
       @apply="emitApply"
       @rename="emitRename"
     />
-  </div>
+  </main>
 </template>
 
-<style lang="scss" scoped>
-@import "@/assets/styles/userSchemes.scss";
-</style>
+<style lang="scss" scoped></style>

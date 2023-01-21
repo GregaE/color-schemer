@@ -25,18 +25,21 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h1>My Schemes</h1>
+  <div class="scheme-list">
     <UserScheme
       v-for="scheme in userSchemeList"
       :key="scheme.id"
       :scheme="scheme"
       @apply="emitApply"
     />
-    >
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/components/schemeList.scss";
+.scheme-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;
+  margin: 2rem 0;
+}
 </style>

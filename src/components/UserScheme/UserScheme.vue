@@ -1,7 +1,13 @@
 <script>
 import { mapActions } from "vuex";
+import Button from "@/components/ui/Button/Button.vue";
+import PieChart from "@/components/ui/PieChart.vue";
 
 export default {
+  components: {
+    PieChart,
+    Button,
+  },
   props: ["scheme"],
   data: () => ({
     isOpen: false,
@@ -25,30 +31,70 @@ export default {
 </script>
 
 <template>
-  <div>
-    <span v-if="!isOpen">{{ scheme.name }}</span>
-    <input
-      v-else
-      :value="`${scheme.name}`"
-      @keydown="handleRename($event)"
-      id="rename-input"
-    />
-    {{ scheme.colors }}
-    <button @click="setScheme(scheme.colors)">Apply</button>
-    <button @click="handleRename($event)">Rename</button>
-    <button
+  <div class="user-scheme">
+    <i
       @click="
         deleteUserScheme({
           schemeId: scheme._id,
           user_id: '6245d8c249e428cdbaa8d920',
         })
       "
-    >
-      Delete
-    </button>
+      class="fa fa-trash"
+      aria-label="delete saved scheme"
+    />
+    <PieChart :colorsArr="scheme.colors" />
+    <p>
+      <span v-if="!isOpen" @dblclick="handleRename($event)">{{
+        scheme.name
+      }}</span>
+      <input
+        v-else
+        type="text"
+        :value="`${scheme.name}`"
+        @keydown="handleRename($event)"
+        id="rename-input"
+      />
+    </p>
+    <Button @click="setScheme(scheme.colors)" variant="primary">Apply</Button>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/styles/components/schemeList.scss";
+.user-scheme {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  height: max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.5rem 4.5rem 2.5rem 4.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--text-primary) 0px 0px 0.357143rem 0px;
+  font-size: 2rem;
+
+  i {
+    cursor: pointer;
+  }
+
+  .fa-trash {
+    align-self: flex-end;
+    margin-right: -2rem;
+  }
+
+  p {
+    width: 100%;
+    text-align: center;
+    span {
+      line-height: 3.8rem;
+    }
+    input[type="text"] {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      width: 14rem;
+    }
+  }
+}
 </style>

@@ -1,10 +1,25 @@
 <template>
   <div>
-    <HomeHeader @toggle-export-modal="toggleExportModal" />
-    <main>
+    <HomeHeader
+      @toggle-export-modal="
+        this.exportModalIsActive = !this.exportModalIsActive
+      "
+      @toggle-save-modal="this.saveModalIsActive = !this.saveModalIsActive"
+    />
+    <Transition>
       <ExportModal v-if="exportModalIsActive" />
-      <router-view />
-    </main>
+    </Transition>
+    <Transition>
+      <SaveModal
+        v-if="saveModalIsActive"
+        @deactivate="this.saveModalIsActive = !this.saveModalIsActive"
+      />
+    </Transition>
+    <router-view
+      class="view-container"
+      @click="toggleModal"
+      :class="{ blurred: exportModalIsActive || saveModalIsActive }"
+    />
     <HomeFooter />
   </div>
 </template>
@@ -13,6 +28,7 @@
 import HomeHeader from "./components/HomeHeader.vue";
 import HomeFooter from "./components/HomeFooter.vue";
 import ExportModal from "./components/ExportModal.vue";
+import SaveModal from "./components/SaveModal.vue";
 
 const rootScheme = document.querySelector(":root");
 
@@ -20,14 +36,21 @@ export default {
   components: {
     HomeHeader,
     ExportModal,
+    SaveModal,
     HomeFooter,
   },
   data: () => ({
     exportModalIsActive: false,
+    saveModalIsActive: false,
   }),
   methods: {
-    toggleExportModal() {
-      this.exportModalIsActive = !this.exportModalIsActive;
+    toggleModal() {
+      if (this.saveModalIsActive) {
+        this.saveModalIsActive = !this.saveModalIsActive;
+      }
+      if (this.exportModalIsActive) {
+        this.exportModalIsActive = !this.exportModalIsActive;
+      }
     },
   },
   beforeCreate() {
@@ -65,4 +88,22 @@ export default {
 
 <style lang="scss">
 @import "@/assets/styles/main.scss";
+
+.view-container {
+  transition: 0.4s;
+  &.blurred {
+    filter: blur(5px);
+  }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: 0.4s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: translateY(-100px);
+}
 </style>
